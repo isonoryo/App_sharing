@@ -20,6 +20,19 @@ class PortfoliosController < ApplicationController
     @portfolio = Portfolio.find(params[:id])  
   end
 
+  def edit
+    @portfolio = Portfolio.find(params[:id])     
+  end
+
+  def update
+    @portfolio = Portfolio.find(params[:id])
+    if @portfolio.update(portfolio_params)
+      redirect_to portfolios_path, notice: "ポートフォリオを編集しました！"
+    else
+      render :edit
+    end
+  end
+
   private
 
     def portfolio_params

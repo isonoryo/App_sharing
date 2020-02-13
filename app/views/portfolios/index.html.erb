@@ -11,6 +11,7 @@
     <td><%= portfolio.name %></td>
     <td><%= portfolio.user.name %></td>
     <td><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></td>
+    <td><%= link_to 'ポートフォリオ編集へ', edit_portfolio_path(portfolio.id) %></td>
   </tr>
 <% end %>
 </table>
