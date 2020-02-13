@@ -9,8 +9,11 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolios = current_user.portfolios.build(portfolio_params)
-    @portfolios.save
-    redirect_to new_portfolio_path
+    if @portfolios.save
+      redirect_to portfolios_path, notice: "ポートフォリオを投稿しました！"
+    else
+      render :new
+    end
   end
 
   def show

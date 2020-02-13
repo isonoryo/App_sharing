@@ -70,7 +70,3 @@ https://docs.google.com/spreadsheets/d/10mFp3XwOoZge0v3F7hEtjKjKxaRzcMiO7ed2I45b
 - devise
 - kaminari
 - ransack
-
-# 使用技術
-- 就業Termから少なくとも2つ：devise、コメント機能
-- カリキュラム外から１つ以上：ransack

@@ -1,4 +1,16 @@
 <%= form_with(model: @portfolios, local: true) do |form| %>
+  <% if @portfolios.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @portfolios.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @portfolios.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="portfolio_name">
     <%= form.label :name %>
     <%= form.text_field :name %>
