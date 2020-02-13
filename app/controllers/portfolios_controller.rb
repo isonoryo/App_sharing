@@ -1,15 +1,17 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio, only: [:show, :edit, :update]
+
   def index
     @portfolios = Portfolio.all
   end
 
   def new
-    @portfolios = Portfolio.new
+    @portfolio = Portfolio.new
   end
 
   def create
-    @portfolios = current_user.portfolios.build(portfolio_params)
-    if @portfolios.save
+    @portfolio = current_user.portfolios.build(portfolio_params)
+    if @portfolio.save
       redirect_to portfolios_path, notice: "ポートフォリオを投稿しました！"
     else
       render :new
@@ -17,15 +19,12 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    @portfolio = Portfolio.find(params[:id])  
   end
 
   def edit
-    @portfolio = Portfolio.find(params[:id])     
   end
 
   def update
-    @portfolio = Portfolio.find(params[:id])
     if @portfolio.update(portfolio_params)
       redirect_to portfolios_path, notice: "ポートフォリオを編集しました！"
     else
@@ -38,5 +37,9 @@ class PortfoliosController < ApplicationController
     def portfolio_params
       params.require(:portfolio).permit(:name, :comment, :creation_period,
                                         :study_period, :deploy_url, :github_url)
+    end
+
+    def set_portfolio
+      @portfolio = Portfolio.find(params[:id])
     end
 end

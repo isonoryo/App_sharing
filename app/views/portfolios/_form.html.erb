@@ -1,0 +1,41 @@
+<%= form_with(model: @portfolio, local: true) do |form| %>
+  <% if @portfolio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @portfolio.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @portfolio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="portfolio_name">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="portfolio_comment">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+  <div class="portfolio_creation_period">
+    <%= form.label :creation_period %>
+    <%= form.text_field :creation_period %>
+  </div>
+  <div class="portfolio_study_period">
+    <%= form.label :study_period %>
+    <%= form.text_field :study_period %>
+  </div>
+  <div class="portfolio_deploy_url">
+    <%= form.label :deploy_url %>
+    <%= form.text_field :deploy_url %>
+  </div>
+  <div class="portfolio_github_url">
+    <%= form.label :github_url %>
+    <%= form.text_field :github_url %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %>
