@@ -1,7 +1,6 @@
 class PortfoliosController < ApplicationController
   def index
     @portfolios = Portfolio.all
-    
   end
 
   def new
@@ -12,6 +11,10 @@ class PortfoliosController < ApplicationController
     @portfolios = current_user.portfolios.build(portfolio_params)
     @portfolios.save
     redirect_to new_portfolio_path
+  end
+
+  def show
+    @portfolio = Portfolio.find(params[:id])  
   end
 
   private

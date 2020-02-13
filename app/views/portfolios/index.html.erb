@@ -10,8 +10,9 @@
   <tr>
     <td><%= portfolio.name %></td>
     <td><%= portfolio.user.name %></td>
+    <td><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></td>
   </tr>
 <% end %>
 </table>
 
-<%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %>
+<%= link_to 'ポートフォリオ投稿', new_portfolio_path %>
