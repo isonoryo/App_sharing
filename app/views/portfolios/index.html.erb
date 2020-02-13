@@ -1,0 +1,17 @@
+<h1>新着投稿ポートフォリオ</h1>
+
+<table>
+  <tr>
+    <th>アプリ名</th>
+    <th>作者名</th>
+  </tr>
+
+<% @portfolios.each do |portfolio| %>
+  <tr>
+    <td><%= portfolio.name %></td>
+    <td><%= portfolio.user.name %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %>
