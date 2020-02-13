@@ -11,7 +11,9 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio = current_user.portfolios.build(portfolio_params)
-    if @portfolio.save
+    if params[:back]
+      render :new
+    elsif @portfolio.save
       redirect_to portfolios_path, notice: "ポートフォリオを投稿しました！"
     else
       render :new
@@ -35,6 +37,11 @@ class PortfoliosController < ApplicationController
   def destroy
     @portfolio.destroy
     redirect_to portfolios_path, notice: "ポートフォリオを削除しました！"
+  end
+
+  def confirm
+    @portfolio = current_user.portfolios.build(portfolio_params)
+    render :new if @portfolio.invalid?
   end
 
   private

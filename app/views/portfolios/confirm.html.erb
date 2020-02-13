@@ -1,0 +1,22 @@
+<h3>ポートフォリオ登録内容をご確認ください。</h3>
+
+<%= form_with(model: @portfolio, local: true) do |form| %>
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :creation_period %>
+  <%= form.hidden_field :study_period %>
+  <%= form.hidden_field :deploy_url %>
+  <%= form.hidden_field :github_url %>
+  <%= form.hidden_field :comment %>
+
+  <p>アプリ名: <%= @portfolio.name %></p>
+  <p>作者コメント: <%= @portfolio.comment %></p>
+  <p>作成期間: <%= @portfolio.creation_period %></p>
+  <p>作成時の学習歴: <%= @portfolio.study_period %></p>
+  <p>使用言語</p>
+  <p>デプロイ先: <%= @portfolio.deploy_url %></p>
+  <p>GitHub: <%= @portfolio.github_url %></p>
+  <%= form.submit "ポートフォリオを登録する" %>
+  <%= form.submit "戻る", name: 'back' %>
+<% end %>
+
+

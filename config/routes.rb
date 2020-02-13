@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :portfolios
+  resources :portfolios do
+    collection do
+      post :confirm
+    end
+  end
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
