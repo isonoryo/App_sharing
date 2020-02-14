@@ -1,9 +1,11 @@
 <h1>ポートフォリオ詳細</h1>
 <p>アプリ名: <%= @portfolio.name %></p>
 <p>作者名: <%= @portfolio.user.name %></p>
-<p>作成期間: <%= @portfolio.creation_period %></p>
-<p>作成時の学習歴: <%= @portfolio.study_period %></p>
-<p>使用言語</p>
 <p>作者のコメント: <%= @portfolio.comment %></p>
+<p>制作時間: <%= @portfolio.creation_period %></p>
+<p>制作時の学習歴: <%= @portfolio.study_period %></p>
+<p>使用言語</p>
 <p>デプロイ先: <%= @portfolio.deploy_url %></p>
 <p>GitHub: <%= @portfolio.github_url %></p>
+
+<%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %>
