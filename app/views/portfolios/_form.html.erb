@@ -21,11 +21,11 @@
   </div>
   <div class="portfolio_creation_period">
     <%= form.label :creation_period %>
-    <%= form.text_field :creation_period %>
+    <%= form.select :creation_period, ['〜２０時間', '２０時間〜４０時間', '４０時間〜６０時間', '６０時間〜１００時間', '１００時間〜２００時間', '２００時間〜３００時間', '３００時間〜' ], {include_blank: '制作時間を選択してください'}, class: 'creation_period' %>
   </div>
   <div class="portfolio_study_period">
     <%= form.label :study_period %>
-    <%= form.text_field :study_period %>
+    <%= form.select :study_period, ['〜１ヶ月', '１ヶ月〜２ヶ月', '２ヶ月〜３ヶ月', '３ヶ月〜半年', '半年〜１年', '１年〜２年', '２年〜３年', '３年〜' ], {include_blank: '制作時の学習歴を選択してください'}, class: 'study_period' %>
   </div>
   <div class="portfolio_deploy_url">
     <%= form.label :deploy_url %>
