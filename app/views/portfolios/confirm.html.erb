@@ -4,7 +4,9 @@
   <%= form.hidden_field :name %>
   <%= form.hidden_field :creation_period %>
   <%= form.hidden_field :study_period %>
-  <%= form.hidden_field :programming_language_ids %> 
+  <% @portfolio.programming_language_ids.each do |id| %>
+  <%= form.hidden_field :programming_language_ids, value: id, multiple: true %> 
+  <% end %>
   <%= form.hidden_field :deploy_url %>
   <%= form.hidden_field :github_url %>
   <%= form.hidden_field :comment %>
