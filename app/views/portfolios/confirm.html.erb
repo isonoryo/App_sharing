@@ -13,7 +13,7 @@
   <p>作者コメント: <%= @portfolio.comment %></p>
   <p>制作時間: <%= @portfolio.creation_period %></p>
   <p>制作時の学習歴: <%= @portfolio.study_period %></p>
-  <p>使用言語: </p><%= @portfolio.portfolio_languages.each do |portfolio_language| %>
+  <p>使用言語: </p><% @portfolio.portfolio_languages.each do |portfolio_language| %>
   <p><%= portfolio_language.programming_language.name %></p>
   <% end %>
   <p>デプロイ先: <%= @portfolio.deploy_url %></p>
