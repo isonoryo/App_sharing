@@ -48,7 +48,7 @@ class PortfoliosController < ApplicationController
 
     def portfolio_params
       params.require(:portfolio).permit(:name, :comment, :creation_period,
-                                        :study_period, :deploy_url, :github_url)
+                                        :study_period, :deploy_url, :github_url, programming_language_ids: [] )
     end
 
     def set_portfolio

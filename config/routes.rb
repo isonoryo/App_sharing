@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :programming_languages
   root to: 'portfolios#index'
   resources :portfolios do
     collection do

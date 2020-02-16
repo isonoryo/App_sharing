@@ -4,6 +4,7 @@
   <%= form.hidden_field :name %>
   <%= form.hidden_field :creation_period %>
   <%= form.hidden_field :study_period %>
+  <%= form.hidden_field :programming_language_ids %> 
   <%= form.hidden_field :deploy_url %>
   <%= form.hidden_field :github_url %>
   <%= form.hidden_field :comment %>
@@ -12,11 +13,14 @@
   <p>作者コメント: <%= @portfolio.comment %></p>
   <p>制作時間: <%= @portfolio.creation_period %></p>
   <p>制作時の学習歴: <%= @portfolio.study_period %></p>
-  <p>使用言語</p>
+  <p>使用言語: </p><%= @portfolio.portfolio_languages.each do |portfolio_language| %>
+  <p><%= portfolio_language.programming_language.name %></p>
+  <% end %>
   <p>デプロイ先: <%= @portfolio.deploy_url %></p>
   <p>GitHub: <%= @portfolio.github_url %></p>
   <%= form.submit "ポートフォリオを登録する" %>
   <%= form.submit "戻る", name: 'back' %>
 <% end %>
+
 
 

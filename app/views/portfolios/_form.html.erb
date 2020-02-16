@@ -35,6 +35,18 @@
     <%= form.label :github_url %>
     <%= form.text_field :github_url %>
   </div>
+  <div class="programming_language">
+   <%= form.label :programming_language %>
+    <% ProgrammingLanguage.all.each do |programming_language| %>
+        <% if action_name == 'new' || action_name == 'create' %>
+          <%= form.check_box :programming_language_ids, { multiple: true, checked: programming_language[:checked], disabled: programming_language[:disabled], include_hidden: false}, programming_language[:id], "" %>
+          <label><%= programming_language.name %></label>
+        <% elsif action_name == 'edit' || action_name == 'update' %>
+          <%= form.check_box :programming_language_ids, { multiple: true, checked: @portfolio.programming_language_ids.include?(programming_language.id), disabled: programming_language[:disabled], include_hidden: false}, programming_language[:id], "" %>
+          <label><%= programming_language.name %></label>
+        <% end %>
+      <% end %>
+    </div>
   <%= form.submit %>
 <% end %>
 
