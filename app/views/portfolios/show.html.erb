@@ -5,6 +5,9 @@
 <p>制作時間: <%= @portfolio.creation_period %></p>
 <p>制作時の学習歴: <%= @portfolio.study_period %></p>
 <p>使用言語</p>
+  <% @portfolio.portfolio_languages.each do |portfolio_language| %>
+  <td class="portfolio_language"><%= portfolio_language.programming_language.name %></td>
+  <% end %>
 <p>デプロイ先: <%= @portfolio.deploy_url %></p>
 <p>GitHub: <%= @portfolio.github_url %></p>
 
