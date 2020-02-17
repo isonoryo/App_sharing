@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  resources :programming_languages
   root to: 'portfolios#index'
+
+  resources :programming_languages
   resources :portfolios do
     resources :portfolio_comments, only: [:create, :destroy, :edit, :update]
     collection do
       post :confirm
     end
   end
+  post   '/like/:portfolio_id' => 'likes#like',   as: 'like'
+  delete '/like/:portfolio_id' => 'likes#unlike', as: 'unlike'
+
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   

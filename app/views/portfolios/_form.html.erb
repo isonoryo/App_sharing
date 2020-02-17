@@ -46,3 +46,4 @@
 <% end %>
 
 <%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %>
+<%= render partial: 'portfolios/portfolios', collection: @portfolios, as: :portfolio %>

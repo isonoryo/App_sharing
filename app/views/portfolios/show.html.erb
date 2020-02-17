@@ -1,4 +1,6 @@
 <h1>ポートフォリオ詳細</h1>
+<%= render partial: 'portfolios/portfolios', collection: @portfolios, as: :portfolio %>
+<%= render partial: 'portfolios/portfolios', locals: { portfolio: @portfolio } %>
 <p>アプリ名: <%= @portfolio.name %></p>
 <p>作者名: <%= @portfolio.user.name %></p>
 <p>作者のコメント: <%= @portfolio.comment %></p>

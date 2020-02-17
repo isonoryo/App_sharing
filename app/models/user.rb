@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :portfolios
-  mount_uploader :profile_image, ImageUploader
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :likes, dependent: :destroy
+  has_many :like_portfolios, through: :likes, source: :portfolio
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  mount_uploader :profile_image, ImageUploader
 end
