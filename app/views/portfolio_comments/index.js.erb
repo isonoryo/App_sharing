@@ -1,0 +1,3 @@
+$("#portfolio_comments_area").html("<%= j(render 'portfolio_comments/index', { portfolio_comments: @portfolio_comment.portfolio.portfolio_comments, portfolio: @portfolio_comment.portfolio }) %>")
+$("textarea").val('')
+$('#error_explanation').remove();

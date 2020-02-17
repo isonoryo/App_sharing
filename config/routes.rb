@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: 'portfolios#index'
   resources :portfolios do
     resources :portfolio_comments, only: [:create, :destroy, :edit, :update]
-  end
     collection do
       post :confirm
     end

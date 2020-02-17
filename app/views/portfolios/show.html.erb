@@ -10,5 +10,12 @@
   <% end %>
 <p>デプロイ先: <%= @portfolio.deploy_url %></p>
 <p>GitHub: <%= @portfolio.github_url %></p>
-
+<p>コメント一覧</p>
+  <!-- このportfolio_comments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
+  <div id="portfolio_comments_area">
+    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'portfolio_comments/index', locals: { portfolio_comments: @portfolio_comments, portfolio: @portfolio } %>
+  </div>
+  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'portfolio_comments/form', locals: { portfolio_comment: @portfolio_comment, portfolio: @portfolio } %>
 <%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %>

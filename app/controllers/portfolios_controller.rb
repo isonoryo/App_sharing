@@ -21,6 +21,8 @@ class PortfoliosController < ApplicationController
   end
 
   def show
+    @portfolio_comments = @portfolio.portfolio_comments
+    @portfolio_comment = @portfolio.portfolio_comments.build
   end
 
   def edit
