@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :programming_languages
   root to: 'portfolios#index'
   resources :portfolios do
+    resources :portfolio_comments, only: [:create, :destroy, :edit, :update]
+  end
     collection do
       post :confirm
     end
