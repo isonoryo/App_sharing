@@ -23,7 +23,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :introduce %><br />
+  <%= f.label :school %>
+  <%= f.select :school_id, School.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduce %><br/>
     <%= f.text_area :introduce, autofocus: true %>
   </div>
 

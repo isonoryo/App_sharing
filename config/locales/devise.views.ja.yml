@@ -6,13 +6,14 @@ ja:
         name: "名前"
         email: "メールアドレス"
         introduce: "自己紹介"
+        school: "スクール"
         learning_start: "学習開始時期"
         profile_image: "プロフィール画像"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
     models:
-      user: "ユーザ"
+      user: "ユーザー"
   devise:
     confirmations:
       new:

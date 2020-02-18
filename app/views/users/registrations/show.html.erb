@@ -3,6 +3,7 @@
   <img src=<%= @user.profile_image %> class = "icon_image">
   <p>メールアドレス: <%= @user.email %></p>
   <p>学習開始時期： <%= @user.learning_start.strftime("%Y年%m月") %></p>
+  <p>スクール： <%= @user.school.name %></p>
   <p>自己紹介文： <%= @user.introduce %></p>
 
    <%= link_to '編集する', edit_user_registration_path(@user) %>
