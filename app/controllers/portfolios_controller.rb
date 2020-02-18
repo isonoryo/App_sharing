@@ -5,7 +5,7 @@ class PortfoliosController < ApplicationController
     @portfolios = Portfolio.all.order(created_at:'desc')
   end
   
-  #いいねランキングへ
+  #いいねランキング（いいね数をカウントして、TOP３を格納）へ 
   def ranking
     @all_ranks = Portfolio.find(Like.group(:portfolio_id).order('count(portfolio_id) desc').limit(3).pluck(:portfolio_id))  
   end
