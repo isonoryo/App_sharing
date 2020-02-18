@@ -1,4 +1,11 @@
-<div class="like-link" id="like-link-<%= portfolio.id %>">
+<%
+=begin%>
+ いいね一人一回version 
+<%
+=end%>
+<%
+=begin%>
+ <div class="like-link" id="like-link-<%= portfolio.id %>">
   <% if current_user.likes.find_by(portfolio_id: portfolio.id) %>
     <%= link_to unlike_path(portfolio.id), method: :delete, remote: true do %>
         <div class = "iine__button">❤️<%= portfolio.likes.count %></div>
@@ -8,5 +15,23 @@
         <div class = "iine__button">♡️<%= portfolio.likes.count %></div>
     <% end %>
   <% end %>
-</div>
+</div> 
+<%
+=end%>
 
+<%
+=begin%>
+ 無限いいね可能version 
+<%
+=end%>
+<div class="like-link" id="like-link-<%= portfolio.id %>">
+  <% if current_user.likes.find_by(portfolio_id: portfolio.id) %>
+    <%= link_to like_path(portfolio.id), method: :post, remote: true do %>
+        <div class = "iine__button">❤️<%= portfolio.likes.count %></div>
+    <% end %>
+  <% else %>
+    <%= link_to like_path(portfolio.id), method: :post, remote: true do %>
+        <div class = "iine__button">♡️<%= portfolio.likes.count %></div>
+    <% end %>
+  <% end %>
+</div>

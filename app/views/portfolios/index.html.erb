@@ -20,3 +20,20 @@
 </table>
 
 <%= link_to 'ポートフォリオ投稿', new_portfolio_path %>
+
+<h1>ランキング（仮）</h1>
+<table>
+  <tr>
+    <th>アプリ名</th>
+    <th>作者</th>
+    <th>いいね数</th>
+  </tr>
+
+<% @all_ranks.each do |portfolio| %>
+  <tr>
+    <td><%= portfolio.name %></td>
+    <td><%= portfolio.user.name %></td>
+    <td><%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %></td>
+  </tr>
+<% end %>
+</table>

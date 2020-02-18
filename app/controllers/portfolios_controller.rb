@@ -3,6 +3,7 @@ class PortfoliosController < ApplicationController
 
   def index
     @portfolios = Portfolio.all
+    @all_ranks = Portfolio.find(Like.group(:portfolio_id).order('count(portfolio_id) desc').limit(3).pluck(:portfolio_id))
   end
 
   def new
