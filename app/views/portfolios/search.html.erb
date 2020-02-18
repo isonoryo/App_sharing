@@ -1,6 +1,4 @@
-<h1>新着投稿ポートフォリオ</h1>
-<h2>検索フォーム</h2>
-<%= render 'search_form' %>
+<h1>検索結果</h1>
 
 <table>
   <tr>
@@ -20,6 +18,4 @@
   </tr>
 <% end %>
 </table>
-
-<%= link_to 'ポートフォリオ投稿', new_portfolio_path %>
-<%= link_to 'いいねランキングへ', ranking_portfolios_path %>
+<%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %>

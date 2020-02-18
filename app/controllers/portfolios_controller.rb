@@ -2,7 +2,15 @@ class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
   def index
-    @portfolios = Portfolio.all.order(created_at:'desc')
+    # @portfolios = Portfolio.all.order(created_at:'desc')
+    @q = Portfolio.ransack(params[:q])
+    @programming_languages = ProgrammingLanguage.all #ransakで使用言語検索を行う為の記述
+    @portfolios = @q.result(distinct: true)
+  end
+
+  def search
+    @q = Portfolio.search(search_params)
+    @portfolios = @q.result(distinct: true)
   end
   
   #いいねランキング（いいね数をカウントして、TOP３を格納）へ 
@@ -60,5 +68,9 @@ class PortfoliosController < ApplicationController
 
     def set_portfolio
       @portfolio = Portfolio.find(params[:id])
+    end
+
+    def search_params
+      params.require(:q).permit!
     end
 end

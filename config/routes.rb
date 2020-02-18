@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: 'portfolios#index'
+  #検索機能のルーティング
+  get 'search', to: 'portfolios#search'
 
   resources :programming_languages
   resources :portfolios do
@@ -9,9 +11,12 @@ Rails.application.routes.draw do
       get 'ranking'
     end
   end
+
+  #いいね機能のルーティング
   post   '/like/:portfolio_id' => 'likes#like',   as: 'like'
   delete '/like/:portfolio_id' => 'likes#unlike', as: 'unlike'
 
+  #デバイスのルーティング
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
