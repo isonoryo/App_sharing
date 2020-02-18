@@ -58,9 +58,9 @@
 # カタログ設計
 https://docs.google.com/spreadsheets/d/10mFp3XwOoZge0v3F7hEtjKjKxaRzcMiO7ed2I45bZ8M/edit#gid=1495954817
 # テーブル定義
-https://docs.google.com/spreadsheets/d/10mFp3XwOoZge0v3F7hEtjKjKxaRzcMiO7ed2I45bZ8M/edit#gid=652234101
+https://docs.google.com/spreadsheets/d/10mFp3XwOoZge0v3F7hEtjKjKxaRzcMiO7ed2I45bZ8M/edit#gid=71971291
 # ER図
-https://docs.google.com/spreadsheets/d/10mFp3XwOoZge0v3F7hEtjKjKxaRzcMiO7ed2I45bZ8M/edit#gid=650281299
+https://docs.google.com/spreadsheets/d/10mFp3XwOoZge0v3F7hEtjKjKxaRzcMiO7ed2I45bZ8M/edit#gid=654406008
 # 画面遷移図
 https://docs.google.com/spreadsheets/d/10mFp3XwOoZge0v3F7hEtjKjKxaRzcMiO7ed2I45bZ8M/edit#gid=1621467328
 # ワイヤーフレーム
