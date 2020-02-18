@@ -62,6 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    #編集後にプロフィール画面へ
    def after_update_path_for(resource)
     "/user/#{current_user.id}"
+    # binding.irb
   end
 
   # The path used after sign up for inactive accounts.
