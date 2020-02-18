@@ -2,8 +2,12 @@ class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
   def index
-    @portfolios = Portfolio.all
-    @all_ranks = Portfolio.find(Like.group(:portfolio_id).order('count(portfolio_id) desc').limit(3).pluck(:portfolio_id))
+    @portfolios = Portfolio.all.order(created_at:'desc')
+  end
+  
+  #いいねランキングへ
+  def ranking
+    @all_ranks = Portfolio.find(Like.group(:portfolio_id).order('count(portfolio_id) desc').limit(3).pluck(:portfolio_id))  
   end
 
   def new

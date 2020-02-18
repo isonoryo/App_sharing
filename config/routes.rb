@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :portfolio_comments, only: [:create, :destroy, :edit, :update]
     collection do
       post :confirm
+      get 'ranking'
     end
   end
   post   '/like/:portfolio_id' => 'likes#like',   as: 'like'
