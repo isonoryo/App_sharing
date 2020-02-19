@@ -4,6 +4,7 @@
 
 <table>
   <tr>
+    <th></th>
     <th>アプリ名</th>
     <th>作者名</th>
     <th>いいね数</th>
@@ -11,12 +12,11 @@
 
 <% @portfolios.each do |portfolio| %>
   <tr>
+    <td><img src=<%= portfolio.user.profile_image %> class = "icon_image"></td>
     <td><%= portfolio.name %></td>
     <td><%= portfolio.user.name %></td>
     <td><%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %></td>
     <td><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></td>
-    <td><%= link_to 'ポートフォリオ編集へ', edit_portfolio_path(portfolio.id), data: {confirm: '本当に編集してよろしいですか？'}  %></td>
-    <td><%= link_to 'ポートフォリオを削除する', portfolio_path(portfolio.id), method: :delete, data: {confirm: '本当に削除してよろしいですか？'} %></td>
   </tr>
 <% end %>
 </table>

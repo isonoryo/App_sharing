@@ -1,6 +1,7 @@
 <h1>いいねランキング</h1>
 <table>
   <tr>
+    <th></th>
     <th>アプリ名</th>
     <th>作者</th>
     <th>いいね数</th>
@@ -9,6 +10,7 @@
 
 <% @all_ranks.each.with_index(1) do |portfolio, rank| %>
   <tr>
+    <td><img src=<%= portfolio.user.profile_image %> class = "icon_image"></td>
     <td><%= portfolio.name %></td>
     <td><%= portfolio.user.name %></td>
     <td><%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %></td>

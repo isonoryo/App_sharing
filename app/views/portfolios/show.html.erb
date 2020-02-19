@@ -1,9 +1,10 @@
 <h1>ポートフォリオ詳細</h1>
 
 <p>アプリ名: <%= @portfolio.name %></p>
+<p><img src=<%= @portfolio.user.profile_image %> class = "icon_image"></p>
 <p>作者名: <%= @portfolio.user.name %></p>
+<p><%= link_to "作者詳細へ", "/user/#{@portfolio.user.id}" %></p>
 <p>スクール: <%= @portfolio.user.school.name %></p>
-<p>作者のコメント: <%= @portfolio.comment %></p>
 <p>制作時間: <%= @portfolio.creation_period %></p>
 <p>制作時の学習歴: <%= @portfolio.study_period %></p>
 <p>使用言語</p>
@@ -12,6 +13,7 @@
   <% end %>
 <p>デプロイ先: <%= @portfolio.deploy_url %></p>
 <p>GitHub: <%= @portfolio.github_url %></p>
+<p>作者のコメント: <%= @portfolio.comment %></p>
 <p>いいねする<%= render partial: 'portfolios/portfolios', locals: { portfolio: @portfolio } %></p>
 <p>コメント一覧</p>
   <!-- このportfolio_comments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
