@@ -39,6 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def show
+    # binding.irb
     @user = User.find_by(id: params[:id])
   end
 
