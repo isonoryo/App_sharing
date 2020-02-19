@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+  before_action :authen_user, only: [:edit, :update, :destroy]
 
   def index
     # @portfolios = Portfolio.all.order(created_at:'desc')
@@ -8,7 +9,8 @@ class PortfoliosController < ApplicationController
     @schools = School.all #ransakでスクール検索を行う為の記述
     @portfolios = @q.result(distinct: true)
   end
-
+  
+  #ransack用
   def search
     @q = Portfolio.search(search_params)
     @portfolios = @q.result(distinct: true)
@@ -73,5 +75,13 @@ class PortfoliosController < ApplicationController
 
     def search_params
       params.require(:q).permit!
+    end
+
+    def authen_user
+      @portfolio = Portfolio.find(params[:id])
+      unless current_user.id == @portfolio.user.id
+        flash[:notice] = "投稿者以外の編集は出来ません。"
+        redirect_to portfolios_path
+      end
     end
 end
