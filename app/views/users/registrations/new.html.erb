@@ -14,6 +14,20 @@
   </div>
 
   <div class="field">
+  <%= f.label :learning_start %>
+  <%= f.date_select :learning_start,
+    use_month_numbers: true,
+    start_year: 1980, end_year: (Time.now.year),
+    default: Date.new(1999, 1, 1),
+    :discard_day => true %>
+  </div>
+
+  <div class="field">
+  <%= f.label :school %>
+  <%= f.select :school_id, School.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>

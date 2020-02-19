@@ -62,7 +62,7 @@ class PortfoliosController < ApplicationController
   private
 
     def portfolio_params
-      params.require(:portfolio).permit(:name, :comment, :creation_period,
+      params.require(:portfolio).permit(:name, :comment, :creation_period, :school_id,
                                         :study_period, :deploy_url, :github_url, programming_language_ids: [] )
     end
 

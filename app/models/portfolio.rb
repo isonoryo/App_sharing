@@ -1,5 +1,5 @@
 class Portfolio < ApplicationRecord
-  belongs_to :school
+  belongs_to :school, optional: true
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :liking_users, through: :likes, source: :user

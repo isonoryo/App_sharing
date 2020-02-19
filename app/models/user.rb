@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :school
+  belongs_to :school, optional: true
   has_many :portfolios
   has_many :likes, dependent: :destroy
   has_many :like_portfolios, through: :likes, source: :portfolio

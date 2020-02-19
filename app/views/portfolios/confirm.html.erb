@@ -10,6 +10,12 @@
   <%= form.hidden_field :deploy_url %>
   <%= form.hidden_field :github_url %>
   <%= form.hidden_field :comment %>
+  <%
+=begin%>
+ スクール入力をせずに、スクールIDをスクールへ渡す。 
+<%
+=end%>
+  <%= form.hidden_field :school_id, :value => current_user.school_id %>
 
   <p>アプリ名: <%= @portfolio.name %></p>
   <p>作者コメント: <%= @portfolio.comment %></p>
