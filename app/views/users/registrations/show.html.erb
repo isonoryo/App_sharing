@@ -6,6 +6,16 @@
   <p>スクール： <%= @user.school.name %></p>
   <p>自己紹介文： <%= @user.introduce %></p>
 
-   <%= link_to '編集する', edit_user_registration_path(@user) %>
-   <%= link_to 'ポートフォリオ投稿', new_portfolio_path %>
+  <h2><%= @user.name %>が投稿したポートフォリオ一覧</h2>
+  <% @user.portfolios.each do |portfolio| %>
+    <tr>
+      <td><%= portfolio.name %></td>
+      <td><%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %></td>
+      <td><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></td>
+      <td><%= link_to 'ポートフォリオ編集へ', edit_portfolio_path(portfolio.id), data: {confirm: '本当に編集してよろしいですか？'}  %></td>
+      <td><%= link_to 'ポートフォリオを削除する', portfolio_path(portfolio.id), method: :delete, data: {confirm: '本当に削除してよろしいですか？'} %></td>
+  <% end %>
 </div>
+
+<%= link_to 'プロフィール編集する', edit_user_registration_path(@user) %>
+<%= link_to 'ポートフォリオ投稿', new_portfolio_path %>
