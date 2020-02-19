@@ -2,9 +2,10 @@ class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @portfolios = Portfolio.all.order(created_at:'desc')
+    @portfolios = Portfolio.all.order(created_at:'desc')
     @q = Portfolio.ransack(params[:q])
     @programming_languages = ProgrammingLanguage.all #ransakで使用言語検索を行う為の記述
+    @schools = School.all #ransakでスクール検索を行う為の記述
     @portfolios = @q.result(distinct: true)
   end
 

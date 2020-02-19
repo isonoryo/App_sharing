@@ -4,8 +4,12 @@
   <%= f.label :creation_period_eq, '制作時間'%>
   <%= f.collection_select :creation_period_eq, @portfolios, :creation_period, :creation_period, :include_blank => '指定無し' %>
   <%= f.label :study_period_eq, '制作時の学習歴'%>
-  <%= f.collection_select :study_period_eq, @portfolios, :study_period, :study_period, :include_blank => '指定無し' %>                                                 
+  <%= f.collection_select :study_period_eq, @portfolios, :study_period, :study_period, :include_blank => '指定無し' %> 
+  <%= f.label :school_id_eq, 'スクール'%>
+  <%= f.collection_select :school_id_eq, @schools, :id, :name, :include_blank => '指定無し' %> 
   <%= f.label :programming_languages_id_in, '使用言語'%>
   <%= f.collection_check_boxes :programming_languages_id_in, @programming_languages, :id, :name %>
   <%= f.submit "検索する" %>
 <% end %>
+
+ 
