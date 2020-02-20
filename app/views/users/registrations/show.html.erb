@@ -6,7 +6,7 @@
 <% if @user.id == current_user.id %>
 <div class="user_show">
   <h1><%= @user.name %>のページ</h1>
-  <img src=<%= @user.profile_image %> class = "icon_image">
+  <img class="user_image" src=<%= @user.profile_image %> class = "icon_image">
   <p>メールアドレス: <%= @user.email %></p>
   <p>学習開始時期： <%= @user.learning_start.strftime("%Y年%m月") %></p>
   <p>スクール： <%= @user.school.name %></p>

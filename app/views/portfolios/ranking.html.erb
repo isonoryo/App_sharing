@@ -1,21 +1,26 @@
-<h1>いいねランキング</h1>
-<table>
-  <tr>
-    <th></th>
-    <th>アプリ名</th>
-    <th>作者</th>
-    <th>いいね数</th>
-    <th>ランキング</th>
-  </tr>
-
-<% @all_ranks.each.with_index(1) do |portfolio, rank| %>
-  <tr>
-    <td><img src=<%= portfolio.user.profile_image %> class = "icon_image"></td>
-    <td><%= portfolio.name %></td>
-    <td><%= portfolio.user.name %></td>
-    <td><%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %></td>
-    <td>No,<%= "#{rank}" %></td>
-    <td><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></td>
-  </tr>
+<div class="container">
+  <h1 class="row justify-content-center">いいねランキング</h1>
+  <% @all_ranks.each.with_index(1) do |portfolio, rank| %>
+   <h3 class="row justify-content-center">No,<%= "#{rank}" %></h3>
+  <div class="card">
+    <div class="container">
+      <br>
+      <div class="row justify-content-center">
+        <div class="col-3">
+          <p><img class="user_image" src=<%= portfolio.user.profile_image %> class = "icon_image"></p>
+          <p class="user_name">作者名：<%= portfolio.user.name %></p>
+        </div>
+        <div class="col-4">
+          <p>アプリ名：<%= portfolio.name %></p>
+          <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></p>
+        </div>
+        <div class="col-3">
+          いいね数<%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %>
+          <%= link_to 'デプロイ先', portfolio.deploy_url, class: 'URL' %>
+        </div>
+      </div>
+    </div>
+  </div>
+    <br><br><br>
 <% end %>
-</table>
+</div>

@@ -4,20 +4,25 @@
 </div>
 
 <div class="container">
-  <h1>新着投稿ポートフォリオ</h1>
-  
+  <h1 class="row justify-content-center">新着投稿ポートフォリオ</h1>
   <% @portfolios.each do |portfolio| %>
   <div class="card">
     <div class="container">
-      <ul>
-      <br>
-        <li ><img class="user_image" src=<%= portfolio.user.profile_image %> class = "icon_image"></li>
-        <li>アプリ名<%= portfolio.name %></li>
-        <li>作者名<%= portfolio.user.name %></li>
-        <li><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></>
-        <li>いいね数<%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %></li>
-        <li><%= link_to 'デプロイ先', portfolio.deploy_url, class: 'URL' %></li>
-      </ul>
+      <br><br>
+      <div class="row justify-content-center">
+        <div class="col-3">
+          <p><img class="user_image" src=<%= portfolio.user.profile_image %> class = "icon_image"></p>
+          <p class="user_name">作者名：<%= portfolio.user.name %></p>
+        </div>
+        <div class="col-4">
+          <p>アプリ名：<%= portfolio.name %></p>
+          <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></p>
+        </div>
+        <div class="col-3">
+          いいね数<%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %>
+          <%= link_to 'デプロイ先', portfolio.deploy_url, class: 'URL' %>
+        </div>
+      </div>
     </div>
   </div>
     <br><br><br>
