@@ -1,15 +1,15 @@
 <%= search_form_for(@q, url:search_path) do |f| %>
   <%= f.label :name_cont, 'アプリ名'%>
-  <%= f.search_field :name_cont %>
+  <%= f.search_field :name_cont %><br>
   <%= f.label :creation_period_eq, '制作時間'%>
-  <%= f.collection_select :creation_period_eq, @portfolios, :creation_period, :creation_period, :include_blank => '指定無し' %>
+  <%= f.collection_select :creation_period_eq, @portfolios, :creation_period, :creation_period, :include_blank => '指定無し' %><br>
   <%= f.label :study_period_eq, '制作時の学習歴'%>
-  <%= f.collection_select :study_period_eq, @portfolios, :study_period, :study_period, :include_blank => '指定無し' %> 
+  <%= f.collection_select :study_period_eq, @portfolios, :study_period, :study_period, :include_blank => '指定無し' %> <br>
   <%= f.label :school_id_eq, 'スクール'%>
-  <%= f.collection_select :school_id_eq, @schools, :id, :name, :include_blank => '指定無し' %> 
+  <%= f.collection_select :school_id_eq, @schools, :id, :name, :include_blank => '指定無し' %> <br>
   <%= f.label :programming_languages_id_in, '使用言語'%>
-  <%= f.collection_check_boxes :programming_languages_id_in, @programming_languages, :id, :name %>
+  <%= f.collection_check_boxes :programming_languages_id_in, @programming_languages, :id, :name %><br>
   <%= f.submit "検索する" %>
 <% end %>
 
- 
+ <button type="button" class="btn btn-outline-primary waves-effect">Primary</button>

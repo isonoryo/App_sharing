@@ -11,20 +11,18 @@
    <div class="container">
     <ul>
     <br>
+
       <li><img src=<%= portfolio.user.profile_image %> class = "icon_image"></li>
       <li>アプリ名<%= portfolio.name %></li>
       <li>作者名<%= portfolio.user.name %></li>
-      <li>いいね数<%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %></li>
       <li><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></li>
+      <li>いいね数<%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %></li>
+      <li>デプロイ先<%= portfolio.deploy_url %></li>
     </ul>
     </div>
     </div>
     <br><br><br>
 
   <% end %>
-  
-
   <%= link_to 'ポートフォリオ投稿', new_portfolio_path %>
-  <%= link_to 'いいねランキングへ', ranking_portfolios_path %>
-  <%= link_to 'マイページへ', "/user/#{current_user.id}" %>
 </div>
