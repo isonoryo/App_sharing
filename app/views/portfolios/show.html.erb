@@ -9,31 +9,35 @@
       <p><img class="user_image" src=<%= @portfolio.user.profile_image %> class = "icon_image"></p>
       <p>作者名: <%= @portfolio.user.name %></p>
     </div>
-  <div class="col-4">
-    <p>アプリ名: <%= @portfolio.name %></p>
-    <p><%= link_to "作者詳細へ", "/user/#{@portfolio.user.id}" %></p>
-    <p>スクール: <%= @portfolio.user.school.name %></p>
-    <p>制作時間: <%= @portfolio.creation_period %></p>
-    <p>制作時の学習歴: <%= @portfolio.study_period %></p>
-    <p>使用言語</p>
-    <% @portfolio.portfolio_languages.each do |portfolio_language| %>
-    <td class="portfolio_language"><%= portfolio_language.programming_language.name %></td>
-  <% end %>
-       <p>デプロイ先: <%= @portfolio.deploy_url %></p>
-       <p>GitHub: <%= @portfolio.github_url %></p>
-       <p>作者のコメント: <%= @portfolio.comment %></p>
-       <p>いいねする<%= render partial: 'portfolios/portfolios', locals: { portfolio: @portfolio } %></p>
-    </div>
+    <div class="col-4">
+      <p>アプリ名: <%= @portfolio.name %></p>
+      <p><%= link_to "作者詳細へ", "/user/#{@portfolio.user.id}" %></p>
+      <p>スクール: <%= @portfolio.user.school.name %></p>
+      <p>制作時間: <%= @portfolio.creation_period %></p>
+      <p>制作時の学習歴: <%= @portfolio.study_period %></p>
+      <p>使用言語</p>
+      <% @portfolio.portfolio_languages.each do |portfolio_language| %>
+        <td class="portfolio_language"><%= portfolio_language.programming_language.name %></td>
+      <% end %>
+        <p>デプロイ先: <%= @portfolio.deploy_url %></p>
+        <p>GitHub: <%= @portfolio.github_url %></p>
+        <p>作者のコメント: <%= @portfolio.comment %></p>
+        <p>いいねする<%= render partial: 'portfolios/portfolios', locals: { portfolio: @portfolio } %></p>
+      </div>
     </div>
   </div>
 </div>
 
+<div class="container">
 <p>コメント一覧</p>
   <!-- このportfolio_comments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
   <div id="portfolio_comments_area">
     <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
     <%= render partial: 'portfolio_comments/index', locals: { portfolio_comments: @portfolio_comments, portfolio: @portfolio } %>
   </div>
+</div>
   <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-  <%= render partial: 'portfolio_comments/form', locals: { portfolio_comment: @portfolio_comment, portfolio: @portfolio } %>
-<%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %>
+  <div class="row justify-content-center">
+    <%= render partial: 'portfolio_comments/form', locals: { portfolio_comment: @portfolio_comment, portfolio: @portfolio } %>
+  </div>
+  
