@@ -6,5 +6,9 @@ class Portfolio < ApplicationRecord
   has_many :portfolio_comments, dependent: :destroy
   has_many :portfolio_languages, dependent: :destroy, foreign_key: 'portfolio_id'
   has_many :programming_languages, through: :portfolio_languages, source: :programming_language
+
   validates :name, presence: true
+  validates :creation_period, presence: true
+  validates :study_period, presence: true
+  validates :deploy_url, presence: true
 end
