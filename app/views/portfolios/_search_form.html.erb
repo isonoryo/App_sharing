@@ -2,15 +2,15 @@
   <div class="card">
   <h2 class="row justify-content-center">検索フォーム</h2>
     <%= search_form_for(@q, url:search_path) do |f| %>
-      <%= f.label :name_cont, 'アプリ名'%>
+      <%= f.label :name_cont, t('view.app_name')%>
       <%= f.search_field :name_cont %><br>
-      <%= f.label :creation_period_eq, '制作時間'%>
+      <%= f.label :creation_period_eq, t('view.creation_period')%>
       <%= f.collection_select :creation_period_eq, @portfolios, :creation_period, :creation_period, :include_blank => '指定無し' %><br>
-      <%= f.label :study_period_eq, '制作時の学習歴'%>
+      <%= f.label :study_period_eq, t('view.study_period')%>
       <%= f.collection_select :study_period_eq, @portfolios, :study_period, :study_period, :include_blank => '指定無し' %> <br>
-      <%= f.label :school_id_eq, 'スクール'%>
+      <%= f.label :school_id_eq, t('view.school_or_selftaught')%>
       <%= f.collection_select :school_id_eq, @schools, :id, :name, :include_blank => '指定無し' %> <br>
-      <%= f.label :programming_languages_id_in, '使用言語'%>
+      <%= f.label :programming_languages_id_in, t('view.programming_language')%>
       <%= f.collection_check_boxes :programming_languages_id_in, @programming_languages, :id, :name %><br>
       <%= f.submit "検索する" %>
     <% end %>

@@ -7,22 +7,22 @@
     <div class="row justify-content-center">
     <div class="col-3">
       <p><img class="user_image" src=<%= @portfolio.user.profile_image %> class = "icon_image"></p>
-      <p>作者名: <%= @portfolio.user.name %></p>
+      <p><%= t('view.creator') %>: <%= @portfolio.user.name %></p>
     </div>
     <div class="col-4">
-      <p>アプリ名: <%= @portfolio.name %></p>
-      <p><%= link_to "作者詳細へ", "/user/#{@portfolio.user.id}" %></p>
-      <p>スクール: <%= @portfolio.user.school.name %></p>
-      <p>制作時間: <%= @portfolio.creation_period %></p>
-      <p>制作時の学習歴: <%= @portfolio.study_period %></p>
-      <p>使用言語</p>
+      <p><%= t('view.app_name') %>: <%= @portfolio.name %></p>
+      <p><%= link_to t('view.creator_details'), "/user/#{@portfolio.user.id}" %></p>
+      <p><%= t('view.school_or_selftaught') %>: <%= @portfolio.user.school.name %></p>
+      <p><%= t('view.creation_period') %>: <%= @portfolio.creation_period %></p>
+      <p><%= t('view.study_period') %>: <%= @portfolio.study_period %></p>
+      <p><%= t('view.programming_language') %></p>
       <% @portfolio.portfolio_languages.each do |portfolio_language| %>
         <p class="portfolio_language"><%= portfolio_language.programming_language.name %></p>
       <% end %>
-        <%= link_to 'デプロイ先', @portfolio.deploy_url, class: 'URL' %>
-        <p>GitHub: <%= @portfolio.github_url %></p>
-        <p>作者のコメント: <%= @portfolio.comment %></p>
-        <p>いいねする<%= render partial: 'portfolios/portfolios', locals: { portfolio: @portfolio } %></p>
+        <%= link_to t('view.deploy_url_link'), @portfolio.deploy_url, class: 'URL' %>
+        <p><%= t('view.github_url') %>: <%= @portfolio.github_url %></p>
+        <p><%= t('view.producer_comments') %>: <%= @portfolio.comment %></p>
+        <p><%= t('view.like') %><%= render partial: 'portfolios/portfolios', locals: { portfolio: @portfolio } %></p>
       </div>
     </div>
   </div>

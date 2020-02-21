@@ -205,3 +205,24 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+
+  view:
+    name: 名前
+    email: メールアドレス
+    introduction: 自己紹介
+    login_now: ログイン中
+    programming_language: 使用言語
+    app_name: アプリ名
+    comment: コメント
+    creation_period: 制作時間
+    study_period: 制作時の学習歴
+    start_of_learning: 学習開始時期
+    deploy_url: デプロイ先のURL
+    deploy_url_link: デプロイ先へ
+    github_url: GitHubのURL
+    school_or_selftaught: スクール
+    producer_comments: 制作者コメント
+    creator: 制作者
+    likes: いいね数
+    creator_details: 制作者詳細
+    like: いいねする

@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      portfolio: ポートフォリオ
+      user: ユーザー
+    attributes:
+      portfolio:
+        name: アプリ名
+        comment: コメント
+        creation_period: 制作時間
+        study_period: 制作時の学習歴
+        deploy_url: デプロイ先のURL
+        github_url: GitHubのURL
+      user:
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
+      
+        

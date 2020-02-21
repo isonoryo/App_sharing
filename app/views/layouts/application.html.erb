@@ -23,7 +23,7 @@
   <% if user_signed_in? %>
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
       <a class="navbar-brand" href="#">AppSharing</a>
-      <p>ログイン中：<%= current_user.name %></p>
+      <p><%= t('view.login_now') %>：<%= current_user.name %></p>
       <p><img class="top_user_image" src=<%= current_user.profile_image %> ></p>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
         aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">

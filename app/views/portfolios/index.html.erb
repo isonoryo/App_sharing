@@ -12,19 +12,19 @@
       <div class="row justify-content-center">
         <div class="col-3">
           <p><img class="user_image" src=<%= portfolio.user.profile_image %> class = "icon_image"></p>
-          <p class="user_name">作者名：<%= portfolio.user.name %></p>
+          <p class="user_name"><%= t('view.creator') %>：<%= portfolio.user.name %></p>
         </div>
         <div class="col-4">
-          <p>アプリ名：<%= portfolio.name %></p>
-          <p>使用言語</p>
+          <p><%= t('view.app_name') %>：<%= portfolio.name %></p>
+          <p><%= t('view.programming_language') %></p>
             <% portfolio.portfolio_languages.each do |portfolio_language| %>
             <p class="portfolio_language"><%= portfolio_language.programming_language.name %></p>
             <% end %>
           <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></p>
         </div>
         <div class="col-3">
-          いいね数<%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %>
-          <%= link_to 'デプロイ先', portfolio.deploy_url, class: 'URL' %>
+          <%= t('view.likes') %><%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %>
+          <%= link_to t('view.deploy_url_link'), portfolio.deploy_url, class: 'URL' %>
         </div>
       </div>
     </div>

@@ -1,34 +1,39 @@
-<h3>ポートフォリオ登録内容をご確認ください。</h3>
-
-<%= form_with(model: @portfolio, local: true) do |form| %>
-  <%= form.hidden_field :name %>
-  <%= form.hidden_field :creation_period %>
-  <%= form.hidden_field :study_period %>
-  <% @portfolio.programming_language_ids.each do |id| %>
-  <%= form.hidden_field :programming_language_ids, value: id, multiple: true %> 
-  <% end %>
-  <%= form.hidden_field :deploy_url %>
-  <%= form.hidden_field :github_url %>
-  <%= form.hidden_field :comment %>
-  <%
+<h2 class="row justify-content-center">ポートフォリオ登録内容をご確認ください</h2>
+<div class="container">
+  <div class="card">
+    <div class="row justify-content-center">
+      <%= form_with(model: @portfolio, local: true) do |form| %>
+        <%= form.hidden_field :name %>
+        <%= form.hidden_field :creation_period %>
+        <%= form.hidden_field :study_period %>
+        <% @portfolio.programming_language_ids.each do |id| %>
+        <%= form.hidden_field :programming_language_ids, value: id, multiple: true %> 
+        <% end %>
+        <%= form.hidden_field :deploy_url %>
+        <%= form.hidden_field :github_url %>
+        <%= form.hidden_field :comment %>
+        <%
 =begin%>
- スクール入力をせずに、スクールIDをスクールへ渡す。 
+ スクール入力をせずに、スクールIDを渡す記述↓ 
 <%
 =end%>
-  <%= form.hidden_field :school_id, :value => current_user.school_id %>
+        <%= form.hidden_field :school_id, :value => current_user.school_id %>
 
-  <p>アプリ名: <%= @portfolio.name %></p>
-  <p>作者コメント: <%= @portfolio.comment %></p>
-  <p>制作時間: <%= @portfolio.creation_period %></p>
-  <p>制作時の学習歴: <%= @portfolio.study_period %></p>
-  <p>使用言語: </p><% @portfolio.portfolio_languages.each do |portfolio_language| %>
-  <p><%= portfolio_language.programming_language.name %></p>
-  <% end %>
-  <p>デプロイ先: <%= @portfolio.deploy_url %></p>
-  <p>GitHub: <%= @portfolio.github_url %></p>
-  <%= form.submit "ポートフォリオを登録する" %>
-  <%= form.submit "戻る", name: 'back' %>
-<% end %>
+        <p><%= t('view.app_name') %>: <%= @portfolio.name %></p>
+        <p><%= t('view.producer_comments') %>: <%= @portfolio.comment %></p>
+        <p><%= t('view.creation_period')%>: <%= @portfolio.creation_period %></p>
+        <p><%= t('view.study_period')%>: <%= @portfolio.study_period %></p>
+        <p><%= t('view.programming_language')%>: </p><% @portfolio.portfolio_languages.each do |portfolio_language| %>
+        <p><%= portfolio_language.programming_language.name %></p>
+        <% end %>
+        <p><%= t('view.deploy_url')%>: <%= @portfolio.deploy_url %></p>
+        <p><%= t('view.github_url')%>: <%= @portfolio.github_url %></p>
+        <%= form.submit "ポートフォリオを登録する" %>
+        <%= form.submit "戻る", name: 'back' %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 
