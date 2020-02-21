@@ -4,6 +4,7 @@
 <br>
 <div class="container">
   <h1 class="row justify-content-center">新着投稿ポートフォリオ</h1>
+  <%= paginate @portfolios %>
   <% @portfolios.each do |portfolio| %>
   <div class="card">
     <div class="container">
@@ -15,6 +16,10 @@
         </div>
         <div class="col-4">
           <p>アプリ名：<%= portfolio.name %></p>
+          <p>使用言語</p>
+            <% portfolio.portfolio_languages.each do |portfolio_language| %>
+            <p class="portfolio_language"><%= portfolio_language.programming_language.name %></p>
+            <% end %>
           <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></p>
         </div>
         <div class="col-3">

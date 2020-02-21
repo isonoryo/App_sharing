@@ -7,13 +7,13 @@ class PortfoliosController < ApplicationController
     @q = Portfolio.ransack(params[:q])
     @programming_languages = ProgrammingLanguage.all #ransakで使用言語検索を行う為の記述
     @schools = School.all #ransakでスクール検索を行う為の記述
-    @portfolios = @q.result(distinct: true)
+    @portfolios = @q.result(distinct: true).page(params[:page]).per(3) 
   end
   
   #ransack用
   def search
     @q = Portfolio.search(search_params)
-    @portfolios = @q.result(distinct: true)
+    @portfolios = @q.result(distinct: true).page(params[:page]).per(3) 
   end
   
   #いいねランキング（いいね数をカウントして、TOP３を格納）へ 

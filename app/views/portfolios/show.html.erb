@@ -17,9 +17,9 @@
       <p>制作時の学習歴: <%= @portfolio.study_period %></p>
       <p>使用言語</p>
       <% @portfolio.portfolio_languages.each do |portfolio_language| %>
-        <td class="portfolio_language"><%= portfolio_language.programming_language.name %></td>
+        <p class="portfolio_language"><%= portfolio_language.programming_language.name %></p>
       <% end %>
-        <p>デプロイ先: <%= @portfolio.deploy_url %></p>
+        <%= link_to 'デプロイ先', @portfolio.deploy_url, class: 'URL' %>
         <p>GitHub: <%= @portfolio.github_url %></p>
         <p>作者のコメント: <%= @portfolio.comment %></p>
         <p>いいねする<%= render partial: 'portfolios/portfolios', locals: { portfolio: @portfolio } %></p>
