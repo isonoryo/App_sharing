@@ -1,3 +1,6 @@
+<div class="container">
+  <div class="card">
+  <div class="row justify-content-center">
 <%= form_with(model: @portfolio, local: true, url: choose_new_or_edit) do |form| %>
   <% if @portfolio.errors.any? %>
     <div id="error_explanation">
@@ -45,6 +48,6 @@
 
   <%= form.submit %>
 <% end %>
-
-<%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %>
-<%= render partial: 'portfolios/portfolios', collection: @portfolios, as: :portfolio %>
+</div>
+    </div>
+</div>

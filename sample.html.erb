@@ -1,0 +1,45 @@
+<h1 class="row justify-content-center"><%= @user.name %>のページ</h1>
+<div class="container">
+  <div class="card">
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-3">
+        <p><img class="user_image" src=<%= @user.profile_image %> class = "icon_image"></p>
+        <p>名前: <%= @user.name %></p>
+      </div>
+      <div class="col-4">  
+        <p>メールアドレス: <%= @user.email %></p>
+        <p>学習開始時期： <%= @user.learning_start.strftime("%Y年%m月") %></p>
+        <p>スクール： <%= @user.school.name %></p>
+        <p>自己紹介文： <%= @user.introduce %></p>
+        <h3><%= link_to 'ポートフォリオ投稿', new_portfolio_path %></h3>
+      </div>
+      <div class="container">
+      <br><br><br>
+        <h2 class="row justify-content-center"><%= @user.name %>が投稿したポートフォリオ一覧</h2>
+          <% @user.portfolios.each do |portfolio| %>
+          <div class="card">
+            <div class="container">
+            <br><br>
+              <div class="row justify-content-center">
+              <div class="col-3">
+                <p><img class="user_image" src=<%= portfolio.user.profile_image %> class = "icon_image"></p>
+                <p class="user_name">作者名：<%= portfolio.user.name %></p>
+              </div>
+              <div class="col-4">
+                <p>アプリ名：<%= portfolio.name %></p>
+                <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></p>
+                <p><%= link_to 'ポートフォリオ編集へ', edit_portfolio_path(portfolio.id), data: {confirm: '本当に編集してよろしいですか？'}  %></p>
+                <p><%= link_to 'ポートフォリオを削除する', portfolio_path(portfolio.id), method: :delete, data: {confirm: '本当に削除してよろしいですか？'} %></p>
+              </div>
+              <div class="col-3">
+                いいね数<%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %>
+                <%= link_to 'デプロイ先', portfolio.deploy_url, class: 'URL' %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

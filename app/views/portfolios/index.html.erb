@@ -1,8 +1,7 @@
-<div class="container">
-  <h2>検索フォーム</h2>
+<div class="container_fluid">
   <%= render 'search_form' %>
 </div>
-
+<br>
 <div class="container">
   <h1 class="row justify-content-center">新着投稿ポートフォリオ</h1>
   <% @portfolios.each do |portfolio| %>
@@ -27,5 +26,4 @@
   </div>
     <br><br><br>
   <% end %>
-  
 </div>
