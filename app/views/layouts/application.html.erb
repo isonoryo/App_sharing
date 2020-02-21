@@ -19,105 +19,91 @@
   </head>
 
   <body>
-  <!--Navbar -->
-  <% if user_signed_in? %>
-    <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
-      <a class="navbar-brand" href="#">AppSharing</a>
-      <p><%= t('view.login_now') %>：<%= current_user.name %></p>
-      <p><img class="top_user_image" src=<%= current_user.profile_image %> ></p>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-        aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto nav-flex-icons">
-          <li class="nav-item">
-            <a class="nav-link" href="#"><%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><%= link_to 'いいねランキングへ', ranking_portfolios_path %></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><%= link_to 'マイページへ', "/user/#{current_user.id}" %></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-   <% else %>
-     <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
-       <a class="navbar-brand" href="#">AppSharing</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-           aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></%>
-         </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"><%= link_to "新規登録", new_user_registration_path %>
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#"><%= link_to "ログイン", new_user_session_path %>
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-        </ul>
-        <%
-=begin%>
- <ul class="navbar-nav ml-auto nav-flex-icons">
-          <li class="nav-item">
-            <a class="nav-link" href="#"><%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><%= link_to 'いいねランキングへ', ranking_portfolios_path %></a>
-          </li>
-        </ul> 
-<%
-=end%>
-      </div>
-    </nav>
-    <% end %>
-    <!--/.Navbar -->
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
+    <div class="wrapper">
+    <!--Navbar -->
+    <% if user_signed_in? %>
+      <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
+        <a class="navbar-brand" href="#">AppSharing</a>
+        <p><%= t('view.login_now') %>：<%= current_user.name %></p>
+        <p><img class="top_user_image" src=<%= current_user.profile_image %> ></p>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+          aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><%= link_to 'いいねランキングへ', ranking_portfolios_path %></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><%= link_to 'マイページへ', "/user/#{current_user.id}" %></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <% else %>
+      <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
+        <a class="navbar-brand" href="#">AppSharing</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></%>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><%= link_to "新規登録", new_user_registration_path %>
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><%= link_to "ログイン", new_user_session_path %>
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <% end %>
+      <!--/.Navbar -->
+      <% if notice %>
+        <p class="alert alert-notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error"><%= alert %></p>
+      <% end %>
 
-    <%= yield %>
+      <%= yield %>
 
-    <script>
-      $('.URL').miniPreview({
-        width: 500,
-        height: 300,
-        scale: .250,
-        prefetch: 'pageload'
-      });
-    </script>
-    <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+      <script>
+        $('.URL').miniPreview({
+          width: 500,
+          height: 300,
+          scale: .250,
+          prefetch: 'pageload'
+        });
+      </script>
+      <!-- JQuery -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <!-- Bootstrap tooltips -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <!-- MDB core JavaScript -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://mdbootstrap.com/education/bootstrap/"> ISO.com</a>
+      </div>
+    </footer>
   </body>
-
-  <!-- Footer -->
-<footer class="page-footer font-small mdb-color lighten-3 pt-4">
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> ISO.com</a>
-  </div>
-</footer>
-<!-- Footer -->
 </html>
