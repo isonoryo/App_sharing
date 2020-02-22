@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :profile_image %><br/>
+    <%= f.file_field :profile_image %>
+  </div>
+
+  <div class="field">
   <%= f.label :learning_start %>
   <%= f.date_select :learning_start,
     use_month_numbers: true,
@@ -33,7 +38,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> <%= t('view.characters_minimum') %>)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>

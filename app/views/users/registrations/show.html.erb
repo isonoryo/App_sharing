@@ -11,7 +11,11 @@
         <br>
         <div class="row justify-content-center">
           <div class="col-3">
-            <p><img class="user_image" src=<%= @user.profile_image %> class = "icon_image"></p>
+            <% if @user.profile_image? %>
+              <p><img class="user_image" src=<%= @user.profile_image %> class = "icon_image"></p>
+            <% else %>
+              <p><%= image_tag "/assets/default.png", class:"blunk_user_image" %></p>
+            <% end %>
             <p><%= t('view.name') %>: <%= @user.name %></p>
           </div>
           <div class="col-4">  
@@ -31,7 +35,11 @@
                 <br><br>
                   <div class="row justify-content-center">
                   <div class="col-3">
+                  <% if portfolio.user.profile_image? %>
                     <p><img class="user_image" src=<%= portfolio.user.profile_image %> class = "icon_image"></p>
+                  <% else %>
+                    <p><%= image_tag "/assets/default.png", class:"blunk_user_image" %></p>
+                  <% end %>                   
                     <p class="user_name"><%= t('view.creator') %>：<%= portfolio.user.name %></p>
                   </div>
                   <div class="col-4">
@@ -66,7 +74,11 @@
       <br>
         <div class="row justify-content-center">
           <div class="col-3">
-            <p><img class="user_image" src=<%= @user.profile_image %> class = "icon_image"></p>
+            <% if @user.profile_image? %>
+              <p><img class="user_image" src=<%= @user.profile_image %> class = "icon_image"></p>
+            <% else %>
+              <p><%= image_tag "/assets/default.png", class:"blunk_user_image" %></p>
+            <% end %>
             <p><%= t('view.name') %>: <%= @user.name %></p>
           </div>
             <div class="col-4">  
@@ -83,7 +95,11 @@
                 <br><br>
                   <div class="row justify-content-center">
                     <div class="col-3">
+                    <% if portfolio.user.profile_image? %>
                       <p><img class="user_image" src=<%= portfolio.user.profile_image %> class = "icon_image"></p>
+                    <% else %>
+                      <p><%= image_tag "/assets/default.png", class:"blunk_user_image" %></p>
+                    <% end %>                   
                       <p class="user_name"><%= t('view.creator') %>：<%= portfolio.user.name %></p>
                     </div>
                     <div class="col-4">
