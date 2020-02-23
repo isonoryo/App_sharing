@@ -4,8 +4,9 @@ FactoryBot.define do
     comment { 'コメント1' }
     creation_period { '〜２０時間'}
     study_period { '〜１ヶ月' }
+    school_id { 1 }
     deploy_url { 'https://www.yahoo.co.jp/' }
-    programming_language { 'sample1' }
+    user
   end
 
   factory :second_portfolio, class: Portfolio do
@@ -14,6 +15,7 @@ FactoryBot.define do
     creation_period { '２０時間〜４０時間'}
     study_period { '１ヶ月〜２ヶ月' }
     deploy_url { 'https://www.yahoo.co.jp/' }
-    programming_language { 'sample1' }
+    school_id { 2 }
+    user
   end
 end

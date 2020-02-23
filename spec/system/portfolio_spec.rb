@@ -1,26 +1,35 @@
 require 'rails_helper'
-RSpec.describe 'ポートフォリオ管理機能', type: :system do
+
+describe 'ポートフォリオ管理機能', type: :system do
+    let(:user) { create(:user) }
+    let(:school) { create(:school, user: user) }
+    let(:portfolio) { create(:portfolio, user: user, school: shcool) }
   before do
-    FactoryBot.create(:portfolio)
-    FactoryBot.create(:second_portfolio)
+    visit root_path
+    fill_in 'user_email', with: 'test10@gmail.com'
+    fill_in 'user_password', with: '123456'
+    # save_and_open_page
+    # sleep 1
+    click_on 'Log in'
   end
 
-  describe 'ポートフォリオ一覧画面' do
     context 'ポートフォリオを作成した場合' do
-      it '作成済みのポートフォリオが表示されること'
-        visit portfolios_path #ポートフォリオ一覧へ移動
-        expect(page).to have_content 'タイトル1' #タスクにタイトル１が含まれているか確認
+      it '作成済みのポートフォリオが表示されること' do
+        expect(page).to have_content 'タイトル1'
+      end
     end
-  end
 
-  describe 'ポートフォリオ登録画面' do
-    context '必要項目を入力して、createボタンを押した場合' do
-      it 'データが保存されること'
-    end
-  end
-  describe 'ポートフォリオ詳細画面' do
-     context '任意のポートフォリオ詳細画面に遷移した場合' do
-       it '該当ポートフォリオの内容が表示されたページに遷移すること'
-     end
-  end
+
+
+
+  # describe 'ポートフォリオ登録画面' do
+  #   context '必要項目を入力して、createボタンを押した場合' do
+  #     it 'データが保存されること'
+  #   end
+  # end
+  # describe 'ポートフォリオ詳細画面' do
+  #    context '任意のポートフォリオ詳細画面に遷移した場合' do
+  #      it '該当ポートフォリオの内容が表示されたページに遷移すること'
+  #    end
+  # end
 end
