@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    name { '１号' }
+    name { '1号' }
     email { 'test10@gmail.com' }
     school_id { 1 }
     learning_start { '1999-1-1' }

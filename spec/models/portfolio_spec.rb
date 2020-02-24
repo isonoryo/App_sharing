@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Portfolio, type: :model do
+describe 'ポートフォリオ登録機能', type: :model do
   user = FactoryBot.create(:user)
   it 'nameが空なら登録できない' do
     portfolio = user.portfolios.build(user_id: 1, name: '', comment: 'コメント',
@@ -44,7 +44,7 @@ describe Portfolio, type: :model do
     expect(portfolio).not_to be_valid
   end
 
-  it '必須項目が全て済みであれば、登録できる' do
+  it '必須項目が全て入力済みであれば、登録できる' do
     portfolio = user.portfolios.build(user_id: 1, name: '1号', comment: 'コメント',
     creation_period:'〜２０時間', study_period: '〜１ヶ月', school_id: 1,
     deploy_url: 'https://www.yahoo.co.jp/' )
