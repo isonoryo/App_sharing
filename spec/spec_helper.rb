@@ -17,7 +17,7 @@ require 'capybara/rspec'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
 config.before(:each, type: :system) do
-   driven_by :selenium_chrome_headless
+   # driven_by :selenium_chrome_headless
 end
   # config.include Rails.application.routes.url_helpers
   # rspec-expectations config goes here. You can use an alternate

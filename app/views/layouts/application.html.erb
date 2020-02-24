@@ -26,7 +26,7 @@
         <a class="navbar-brand" href="#">AppSharing</a>
         <p><%= t('view.login_now') %>：<%= current_user.name %></p>
         <% if current_user.profile_image? %>
-          <p><img class="top_user_image" src=<%= current_user.profile_image %> ></p>
+          <p><%= image_tag current_user.profile_image.url, class: "top_user_image" %></p>
         <% else %>
           <p><%= image_tag "/assets/default.png", class:"top_blunk_user_image" %></p>
         <% end %>

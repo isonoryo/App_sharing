@@ -12,7 +12,7 @@ class PortfoliosController < ApplicationController
   
   #ransack用
   def search
-    @q = Portfolio.search(search_params)
+    @q = Portfolio.ransack(search_params)
     @portfolios = @q.result(distinct: true).page(params[:page]).per(3) 
   end
   

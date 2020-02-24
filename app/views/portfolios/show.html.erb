@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
     <div class="col-3">
       <% if @portfolio.user.profile_image? %>
-        <p><img class="user_image" src=<%= @portfolio.user.profile_image %> class = "icon_image"></p>
+        <p><%= image_tag portfolio.user.profile_image.url, class: "user_image icon_image" %></p>
       <% else %>
         <p><%= image_tag "/assets/default.png", class:"blunk_user_image" %></p>
       <% end %>          
