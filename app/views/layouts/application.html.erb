@@ -37,7 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              <a class="nav-link" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, id: "logout" %>
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -50,7 +50,7 @@
               <a class="nav-link" href="#"><%= link_to 'いいねランキングへ', ranking_portfolios_path %></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><%= link_to 'マイページへ', "/user/#{current_user.id}" %></a>
+              <a class="nav-link2" href="#" value="Save"><%= link_to 'マイページへ', "/user/#{current_user.id}" , id: "my" %></a>
             </li>
           </ul>
         </div>

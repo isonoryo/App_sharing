@@ -1,15 +1,14 @@
 require 'rails_helper'
 
 describe 'ポートフォリオ管理機能', type: :system do
-    let(:user) { create(:user) }
-    let(:school) { create(:school, user: user) }
-    let(:portfolio) { create(:portfolio, user: user, school: shcool) }
+  # school生成→user生成→portfolio生成の順で作成しなければnotnullに引っ掛かる。
+    let!(:school) { FactoryBot.create(:school) }
+    let!(:user) { FactoryBot.create(:user) }
+    let!(:portfolio) { FactoryBot.create(:portfolio, user: user) }
   before do
     visit root_path
     fill_in 'user_email', with: 'test10@gmail.com'
     fill_in 'user_password', with: '123456'
-    # save_and_open_page
-    # sleep 1
     click_on 'Log in'
   end
 
@@ -19,17 +18,28 @@ describe 'ポートフォリオ管理機能', type: :system do
       end
     end
 
+    context 'ポートフォリオ詳細画面へ移行した場合' do
+      it 'ポートフォリオの詳細が表示されること' do
+        click_on 'ポートフォリオ詳細へ'
+        expect(page).to have_content 'ポートフォリオ詳細'
+      end
+    end
+
+    context 'いいねランキングへ移行した場合' do
+      it 'ランキング一覧が表示されること' do
+        click_on 'いいねランキングへ'
+        expect(page).to have_content 'いいねランキング'
+      end
+    end
+
+    context 'マイページへ移行した場合' do
+      it 'マイページが表示されること' do
+        # binding.irb
+        find_by_id("my").click
+        # click_on "my"
+        expect(page).to have_content '１号のページ'
+      end
+    end
 
 
-
-  # describe 'ポートフォリオ登録画面' do
-  #   context '必要項目を入力して、createボタンを押した場合' do
-  #     it 'データが保存されること'
-  #   end
-  # end
-  # describe 'ポートフォリオ詳細画面' do
-  #    context '任意のポートフォリオ詳細画面に遷移した場合' do
-  #      it '該当ポートフォリオの内容が表示されたページに遷移すること'
-  #    end
-  # end
 end
