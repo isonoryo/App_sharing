@@ -20,10 +20,13 @@
         </div>
         <div class="col-4">
           <p><%= t('view.app_name') %>：<%= portfolio.name %></p>
+          <p><%= t('view.school_or_selftaught') %>: <%= portfolio.user.school.name %></p>
+          <p><%= t('view.creation_period') %>: <%= portfolio.creation_period %></p>
+          <p><%= t('view.study_period') %>: <%= portfolio.study_period %></p>
           <p><%= t('view.programming_language') %></p>
             <% portfolio.portfolio_languages.each do |portfolio_language| %>
-            <p class="portfolio_language"><%= portfolio_language.programming_language.name %></p>
-            <% end %>
+          <p class="portfolio_language"><%= portfolio_language.programming_language.name %></p>
+          <% end %>
           <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></p>
         </div>
         <div class="col-3">

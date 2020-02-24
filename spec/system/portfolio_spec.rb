@@ -61,6 +61,35 @@ describe 'ポートフォリオ検索機能', type: :system do
     end
   end
 
+  context '制作時間で検索した場合' do
+    it '該当アプリが表示されること' do
+      visit portfolios_path
+      select '〜２０時間', from: 'q_creation_period_eq'
+      click_on 'send'
+      expect(page).to have_content '〜２０時間'
+    end
+  end
+
+  context '学習歴で検索した場合' do
+    it '該当アプリが表示されること' do
+      visit portfolios_path
+      select '〜１ヶ月', from: 'q_study_period_eq'
+      click_on 'send'
+      expect(page).to have_content '〜１ヶ月'
+    end
+  end
+
+  context 'スクールで検索した場合' do
+    it '該当アプリが表示されること' do
+      visit portfolios_path
+      select 'DIC', match: :first, from: 'q_school_id_eq'
+      click_on 'send'
+      sleep 1
+      expect(page).to have_content '検索結果'
+      # expect(page).to have_content 'DIC'
+    end
+  end
+
 end
 
 
