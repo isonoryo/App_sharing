@@ -1,27 +1,22 @@
 <%= render 'layouts/flash' %>
-<div class="portfolio-comment show-box">
-  <%
-=begin%>
- <%= simple_format(portfolio.comment) %> 
-<%
-=end%>
-</div>
 <% portfolio_comments.order(created_at: :desc).each do |portfolio_comment| %>
   <% if portfolio_comment.id.present? %>
     <div class="show-portfolio_comment show-box" id="portfolio_comment_<%= portfolio_comment.id %>">
-      <div>
-      </div>
       <div id="errors_area_<%= portfolio_comment.id %>">
         <%= render partial: 'portfolio_comments/edit_error' %>
       </div>
+     <div class=“user_name” >
+        <%= "コメント投稿者：" + portfolio_comment.user.name + "さん" %>
+      </div> 
       <div class="portfolio_comment-comment" id ="this_portfolio_comment_<%= portfolio_comment.id %>">
         <%= simple_format(portfolio_comment.comment) %>
       </div>
+      <% if portfolio_comment.user == current_user %>
       <span>投稿日時:<%= time_ago_in_words(portfolio_comment.created_at) %></span>
         <span class="badge"><%= link_to t('.delete'), portfolio_portfolio_comment_path(portfolio_comment.portfolio_id, portfolio_comment.id), method: :delete, remote: true,
                                         data: { confirm: "本当に削除しますか?"} %></span>
         <span class="badge"><%= link_to t('.edit'), edit_portfolio_portfolio_comment_path(portfolio, portfolio_comment), remote: true %></span>
-
+     <% end %>
     </div>
   <% end %>
 <% end %>

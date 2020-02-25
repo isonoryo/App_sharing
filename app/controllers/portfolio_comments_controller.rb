@@ -2,7 +2,8 @@ class PortfolioCommentsController < ApplicationController
   before_action :set_portfolio, only: [:create, :edit, :update, :destroy]
 
   def create
-    @portfolio_comment = @portfolio.portfolio_comments.build(portfolio_comment_params)
+    @portfolio_comment = current_user.portfolio_comments.build(portfolio_comment_params)
+    @portfolio_comment.portfolio_id = params[:portfolio_id]
     respond_to do |format|
       if @portfolio_comment.save
         flash.now[:notice] = 'コメントが投稿されました'
@@ -47,9 +48,9 @@ class PortfolioCommentsController < ApplicationController
   private
 
   def portfolio_comment_params
-    params.require(:portfolio_comment).permit(:comment, :portfolio_id)
+    params.require(:portfolio_comment).permit(:comment)
   end
-
+  
   def set_portfolio
     @portfolio = Portfolio.find(params[:portfolio_id])
   end

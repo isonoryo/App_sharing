@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   belongs_to :school
-  has_many :portfolios
+  has_many :portfolios, dependent: :destroy
+  has_many :portfolio_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_portfolios, through: :likes, source: :portfolio
   devise :database_authenticatable, :registerable,

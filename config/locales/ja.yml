@@ -227,3 +227,6 @@ ja:
     creator_details: 制作者詳細
     like: いいねする
     characters_minimum: 文字以上で入力してください
+    we_need_your_current_password_to_confirm_your_changes: （プロフィール変更には、現在のパスワードが必要です。）
+    not_change: （パスワード変更しない場合は、空欄のままにしてください。）
+    cancel_account: アカウント削除

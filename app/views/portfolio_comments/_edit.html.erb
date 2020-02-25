@@ -2,7 +2,7 @@
 <div id="portfolio_comment_edit_form">
   <%= form_with(model: [portfolio, portfolio_comment]) do |f| %>
     <div class="input-field">
-      <%= f.text_area :comment, class: "materialize-textarea", id: "portfolio_comment_comment_#{portfolio.id}" %>
+      <%= f.text_area :comment,id: "portfolio_comment_comment_#{portfolio.id}" %>
       <%= f.label :comment, class: "active" %>
       <%= button_tag :type => "submit", :class =>"btn waves-effect waves-light" do %>
         送信

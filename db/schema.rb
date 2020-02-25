@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_18_105400) do
+ActiveRecord::Schema.define(version: 2020_02_25_082942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,9 @@ ActiveRecord::Schema.define(version: 2020_02_18_105400) do
     t.bigint "portfolio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["portfolio_id"], name: "index_portfolio_comments_on_portfolio_id"
+    t.index ["user_id"], name: "index_portfolio_comments_on_user_id"
   end
 
   create_table "portfolio_languages", force: :cascade do |t|
@@ -86,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_02_18_105400) do
   end
 
   add_foreign_key "portfolio_comments", "portfolios"
+  add_foreign_key "portfolio_comments", "users"
   add_foreign_key "portfolio_languages", "portfolios"
   add_foreign_key "portfolio_languages", "programming_languages"
   add_foreign_key "portfolios", "schools"

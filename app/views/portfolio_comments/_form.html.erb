@@ -1,7 +1,7 @@
 <div class="portfolio_comment-form">
     <%= form_with(model: [portfolio, portfolio_comment]) do |f| %>
       <div class="input-field">
-        <%= f.text_area :comment, class: "materialize-textarea" %>
+        <%= f.text_area :comment%>
         <%= f.label :comment, "コメント内容", class: "active" %>
         <span class="helper-text" data-error="wrong" data-success="right">1から140文字以内</span>
       </div>

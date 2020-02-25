@@ -35,7 +35,7 @@ describe 'ポートフォリオ管理機能', type: :system do
   context 'マイページへ遷移した場合' do
     it 'マイページが表示されること' do
       user_registration_path
-      expect(page).to have_content '１号のページ'
+      expect(page).to have_content '1号のページ'
     end
   end
 end
@@ -114,19 +114,7 @@ describe 'ポートフォリオコメント機能', type: :system do
     end
   end
 
-  # context 'コメントを編集した場合' do
-  #   it 'コメントが編集されること' do
-  #     visit portfolios_path
-  #     click_on 'ポートフォリオ詳細へ', match: :first
-  #     fill_in 'portfolio_comment_comment', with: 'コメント'
-  #     click_on 'Portfolio Comment'
-  #     click_on 'Edit'
-  #     fill_in 'portfolio_comment_comment_1', with: 'おはよう'
-  #     expect(page).to have_content 'コメントが編集されました'
-  #     expect(page).to have_content 'おはよう'
-  #   end
-  # end
-
+  
 end
 
 

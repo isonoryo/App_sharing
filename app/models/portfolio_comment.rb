@@ -1,3 +1,4 @@
 class PortfolioComment < ApplicationRecord
-  belongs_to :portfolio, optional: true
+  belongs_to :portfolio
+  belongs_to :user
 end
