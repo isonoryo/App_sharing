@@ -65,8 +65,9 @@ https://docs.google.com/spreadsheets/d/10mFp3XwOoZge0v3F7hEtjKjKxaRzcMiO7ed2I45b
 https://docs.google.com/spreadsheets/d/10mFp3XwOoZge0v3F7hEtjKjKxaRzcMiO7ed2I45bZ8M/edit#gid=1621467328
 # ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/10mFp3XwOoZge0v3F7hEtjKjKxaRzcMiO7ed2I45bZ8M/edit#gid=846827472
-# 使用予定Gem
+# 使用Gem
 - carrierwave
+- mini_magick
 - devise
 - kaminari
 - ransack
