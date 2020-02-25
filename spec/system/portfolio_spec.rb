@@ -89,6 +89,43 @@ describe 'ポートフォリオ検索機能', type: :system do
       # expect(page).to have_content 'DIC'
     end
   end
+end
+
+describe 'ポートフォリオコメント機能', type: :system do
+  # school生成→user生成→portfolio生成の順で作成しなければnotnullに引っ掛かる。
+    let!(:school) { FactoryBot.create(:school) }
+    let!(:user) { FactoryBot.create(:user) }
+    let!(:portfolio) { FactoryBot.create(:portfolio, user: user) }
+  before do
+    visit root_path
+    fill_in 'user_email', with: 'test10@gmail.com'
+    fill_in 'user_password', with: '123456'
+    click_on 'Log in'
+  end
+
+  context 'コメントを作成した場合' do
+    it 'コメントが表示されること' do
+      visit portfolios_path
+      click_on 'ポートフォリオ詳細へ', match: :first
+      fill_in 'portfolio_comment_comment', with: 'コメント'
+      click_on 'Portfolio Comment'
+      expect(page).to have_content 'コメントが投稿されました'
+      expect(page).to have_content 'コメント'
+    end
+  end
+
+  # context 'コメントを編集した場合' do
+  #   it 'コメントが編集されること' do
+  #     visit portfolios_path
+  #     click_on 'ポートフォリオ詳細へ', match: :first
+  #     fill_in 'portfolio_comment_comment', with: 'コメント'
+  #     click_on 'Portfolio Comment'
+  #     click_on 'Edit'
+  #     fill_in 'portfolio_comment_comment_1', with: 'おはよう'
+  #     expect(page).to have_content 'コメントが編集されました'
+  #     expect(page).to have_content 'おはよう'
+  #   end
+  # end
 
 end
 
