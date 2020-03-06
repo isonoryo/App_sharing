@@ -26,7 +26,7 @@
         <a class="navbar-brand" href="#">AppSharing</a>
         <p><%= t('view.login_now') %>：<%= current_user.name %></p>
         <% if current_user.profile_image? %>
-          <p><%= image_tag current_user.profile_image.url, class: "top_user_image" %></p>
+          <%= image_tag current_user.profile_image.url, class: "top_user_image" %>
         <% else %>
           <p><%= image_tag "/assets/default.png", class:"top_blunk_user_image" %></p>
         <% end %>
@@ -55,6 +55,33 @@
           </ul>
         </div>
       </nav>
+      <!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
+  <a class="navbar-brand" href="#">App Sharing</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/portfolios">新着投稿ポートフォリオ一覧へ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/portfolios/ranking">いいねランキングへ</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item avatar">
+        <a class="nav-link p-0" href="#">
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+            alt="avatar image" height="35">
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->
     <% else %>
       <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
         <a class="navbar-brand" href="#">AppSharing</a>
@@ -113,3 +140,5 @@
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
   </body>
 </html>
+
+
