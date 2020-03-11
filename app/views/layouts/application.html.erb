@@ -5,7 +5,6 @@
     <title>AppSharing</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Font Awesome -->
@@ -21,91 +20,55 @@
   <body>
     <div class="wrapper">
     <!--Navbar -->
-    <% if user_signed_in? %>
-      <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
-        <a class="navbar-brand" href="#">AppSharing</a>
-        <p><%= t('view.login_now') %>：<%= current_user.name %></p>
-        <% if current_user.profile_image? %>
-          <%= image_tag current_user.profile_image.url, class: "top_user_image" %>
-        <% else %>
-          <p><%= image_tag "/assets/default.png", class:"top_blunk_user_image" %></p>
+      <% if user_signed_in? %>
+        <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
+          <a class="navbar-brand" href="#">App Sharing</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+              aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/portfolios">新着投稿ポートフォリオ一覧へ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/portfolios/ranking">いいねランキングへ</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header" %>
+              <%= link_to 'マイページへ', "/user/#{current_user.id}" , class: "header" %>
+            </ul>
+            <div class="login_word"><%= t('view.login_now') %>：<%= current_user.name %>
+            </div>
+            <% if current_user.profile_image? %>
+              <%= image_tag current_user.profile_image.url, class: "top_user_image" %>
+            <% else %>
+              <%= image_tag "/assets/default.png", class:"top_user_image" %>
+            <% end %>
+          </div>
+        </nav>
+      <% else %>
+        <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
+          <a class="navbar-brand" href="#">AppSharing</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+              aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></%>
+            </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <%= link_to "新規登録", new_user_registration_path, class: "header" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "ログイン", new_user_session_path, class: "header" %>
+              </li>
+            </ul>
+          </div>
+        </nav>
         <% end %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-          aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, id: "logout" %>
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="navbar-nav ml-auto nav-flex-icons">
-            <li class="nav-item">
-              <a class="nav-link" href="#"><%= link_to '新着投稿ポートフォリオ一覧へ', portfolios_path %></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"><%= link_to 'いいねランキングへ', ranking_portfolios_path %></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link2" href="#" value="Save"><%= link_to 'マイページへ', "/user/#{current_user.id}" , id: "my" %></a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
-  <a class="navbar-brand" href="#">App Sharing</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
-    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="/portfolios">新着投稿ポートフォリオ一覧へ</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/portfolios/ranking">いいねランキングへ</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li class="nav-item avatar">
-        <a class="nav-link p-0" href="#">
-          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-            alt="avatar image" height="35">
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<!--/.Navbar -->
-    <% else %>
-      <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
-        <a class="navbar-brand" href="#">AppSharing</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></%>
-          </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><%= link_to "新規登録", new_user_registration_path %>
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><%= link_to "ログイン", new_user_session_path %>
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <% end %>
-      <!--/.Navbar -->
+        <!--/.Navbar -->
       <div class="row justify-content-center">
         <% if notice %>
           <p class="alert alert-notice"><%= notice %></p>
@@ -119,7 +82,7 @@
       
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
       <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/education/bootstrap/"> ISO.com</a>
+        <a> ISO.com</a>
       </div>
     </footer>
     <script>

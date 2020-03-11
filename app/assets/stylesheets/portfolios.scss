@@ -21,8 +21,10 @@
    width: 80%;
  }
 
- .top_blunk_user_image{
-   width: 20%;
+ .top_user_image{
+   border-radius: 130px;
+   width: 5%;
+   padding: 8px;
  }
 
  .card{
@@ -33,17 +35,22 @@
     padding-left: 40px;
  }
  
-//  ヘッダーのユーザーイメージ
- .top_user_image{
-   border-radius: 200px;
-   width: 30%;  
-}
-
 .wrapper{
    min-height: 100vh;
    position: relative;/*←相対位置*/
    padding-bottom: 120px;/*←footerの高さ*/
    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+.header{
+   color: #fff;
+   padding: 15px;
+   margin:  auto;               /* 中央寄せ */
+}
+
+.login_word{
+   color: #fff;
+   padding: 8px;
 }
 
 footer{
