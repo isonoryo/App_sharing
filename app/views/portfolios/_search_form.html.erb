@@ -13,7 +13,10 @@
       <%= f.label :programming_languages_id_in, t('view.programming_language')%>
       <%= f.collection_check_boxes :programming_languages_id_in, @programming_languages, :id, :name %><br>
       <%#= f.submit "検索する", class: "btn", id: "send" %>
-      <%= f.submit "検索する", id: "send" %>
+      <br>
+      <div class="text-center">
+      <%= f.submit "検索する", id: "send", class: "btn btn-cyan" %>
+      </div>
     <% end %>
     <%
 =begin%>

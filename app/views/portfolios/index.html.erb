@@ -27,7 +27,7 @@
             <% portfolio.portfolio_languages.each do |portfolio_language| %>
           <p class="portfolio_language"><%= portfolio_language.programming_language.name %></p>
           <% end %>
-          <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></p>
+          <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id), class: "btn btn-cyan" %></p>
         </div>
         <div class="col-3">
           <%= t('view.likes') %><%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %>
