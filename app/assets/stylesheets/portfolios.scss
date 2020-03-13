@@ -63,3 +63,11 @@ footer{
 position: absolute;/*←絶対位置*/
    bottom: 0; /*下に固定*/
 }
+
+.jumbotron {
+   background-image: url(/assets/website-1624028_1280.png);
+   background-size: cover;
+   background-repeat: no-repeat;
+   margin: 0;
+   padding: 0;
+ }
