@@ -1,53 +1,51 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<!-- Main navigation -->
-  <!-- Full Page Intro -->
   <section style="background-image: url('/assets/website-1624028_1280.png'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-    <!-- Mask & flexbox options-->
     <div class="mask d-flex justify-content-center align-items-center">
-      <!-- Content -->
       <div class="container py-5 my-5">
 
 
 <div class="container my-5 z-depth-1">
-  <!--Section: Content-->
   <section style="background-color: #2bbbad !important", class="dark-grey-text">
-    <div class="row pr-lg-120">
-      <div class="col-md-4 mb-10">
+    <div class="row pr-lg-12">
+      <div class="col-md-6 mb-20">
         <div class="view">
-          <img src="https://mdbootstrap.com/img/illustrations/graphics(4).png" class="img-fluid" alt="smaple image">
+          <img src="https://mdbootstrap.com/img/illustrations/graphics(2).png" class="img-fluid" alt="smaple image">
         </div>
       </div>
-      <div class="col-md-5 d-flex align-items-center">
+      <div class="col-md-6 d-flex align-items-center">
         <div>
-          <h3 class="font-weight-bold mb-9">Material Design Blocks</h3>
-        	<p>Lorem ipsum dolor sit amet consectetur adip elit. Maiores deleniti explicabo voluptatem quisquam nulla asperiores aspernatur aperiam voluptate et consectetur minima delectus, fugiat eum soluta blanditiis adipisci, velit dolore magnam.</p>
-        	<button type="button" class="btn btn-orange btn-rounded mx-0">Download</button>
+          <h2 class="font-weight-bold white-text mb-10">AppSharingでポートフォリオを</h2>
+          <h2 class="font-weight-bold white-text mb-10">シェアしよう！</h2>
+        	<h4 class="step">STEP1</h4>
+          <h5 class="font-weight-bold white-text mb-10">ユーザー登録（学習歴、スクール等）</h5>
+          <h4 class="step">STEP2</h4>
+          <h5 class="font-weight-bold white-text mb-10">ポートフォリオ登録（使用言語、デプロイ先等）</h5>
+         	<h4 class="step">STEP3</h4>
+          <h5 class="font-weight-bold white-text mb-10">みんなでポートフォリオをシェアしよう！</h5>
+          <h5 class="font-weight-bold white-text mb-10">（いいね、コメント等）</h5>
         </div>
       </div>
     </div>
   </section>
-  <!--Section: Content-->
 </div> 
 
 
-        <!--Grid row-->
         <div class="row d-flex align-items-center justify-content-center">
-          <!--Grid column-->
           <div class="col-md-6 col-xl-5">
-            <!--Form-->
             <div class="card">
-                <!-- Email -->
+            
                 <div class="md-form">
                   <i class="fa fa-envelope prefix black-text"></i>
                   <%= f.label :email %><br />
                   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
                 </div>
-                <!-- password -->
+
                 <div class="md-form">
                   <i class="fas fa-key prefix black-text"></i>
                   <%= f.label :password %><br />
                   <%= f.password_field :password, autocomplete: "current-password" %>
                 </div>
+                
                 <div class="text-center my-3">
                   <div class="actions">
                     <button class="btn btn-indigo btn-block">ログイン</button>
@@ -55,16 +53,8 @@
                 </div>
               </div>
             </div>
-            <!--/.Form-->
           </div>
-          <!--Grid column-->
         </div>
-        <!--Grid row-->
       </div>
-      <!-- Content -->
-    <!-- Mask & flexbox options-->
   </section>
-  <!-- Full Page Intro -->
-<!-- Main navigation -->
-
 <% end %>
