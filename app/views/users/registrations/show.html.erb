@@ -23,12 +23,12 @@
             <p><%= t('view.start_of_learning') %>： <%= @user.learning_start.strftime("%Y年%m月") %></p>
             <p><%= t('view.school_or_selftaught') %>： <%= @user.school.name %></p>
             <p><%= t('view.introduction') %>： <%= @user.introduce %></p>
-            <h3><%= link_to 'プロフィール編集する', edit_user_registration_path(@user) %></h3>
+            <h3><%= link_to 'プロフィール編集する', edit_user_registration_path(@user), class: "btn btn-cyan" %></h3>
           </div>
           <div class="container">
           <br><br><br>
             <h2 class="row justify-content-center"><%= @user.name %>が投稿したポートフォリオ一覧</h2>
-            <h3 class="row justify-content-center"><%= link_to 'ポートフォリオ投稿', new_portfolio_path %></h3>
+            <h3 class="row justify-content-center"><%= link_to 'ポートフォリオ投稿', new_portfolio_path, class: "btn btn-success"%></h3>
               <% @user.portfolios.each do |portfolio| %>
               <div class="card">
                 <div class="container">
@@ -44,13 +44,13 @@
                   </div>
                   <div class="col-4">
                     <p><%= t('view.app_name') %>：<%= portfolio.name %></p>
-                    <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></p>
-                    <p><%= link_to 'ポートフォリオ編集へ', edit_portfolio_path(portfolio.id), data: {confirm: '本当に編集してよろしいですか？'}  %></p>
-                    <p><%= link_to 'ポートフォリオを削除する', portfolio_path(portfolio.id), method: :delete, data: {confirm: '本当に削除してよろしいですか？'} %></p>
+                    <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id), class: "btn btn-cyan" %></p>
+                    <p><%= link_to 'ポートフォリオ編集へ', edit_portfolio_path(portfolio.id), data: {confirm: '本当に編集してよろしいですか？'}, class: "btn btn-cyan"  %></p>
+                    <p><%= link_to 'ポートフォリオを削除する', portfolio_path(portfolio.id), method: :delete, data: {confirm: '本当に削除してよろしいですか？'}, class: "btn btn-danger" %></p>
                   </div>
                   <div class="col-3">
-                    <%= t('view.likes') %><%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %>
-                    <%= link_to t('view.deploy_url_link'), portfolio.deploy_url, class: 'URL' %>
+                    <%= t('view.likes') %><%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %><br>
+                    <%= link_to t('view.deploy_url_link'), portfolio.deploy_url, class: 'URL', id: 'btn-gradient-3d-orange' %>
                   </div>
                  </div>
                </div>
@@ -104,11 +104,11 @@
                     </div>
                     <div class="col-4">
                       <p><%= t('view.app_name') %>：<%= portfolio.name %></p>
-                      <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id) %></p>
+                      <p><%= link_to 'ポートフォリオ詳細へ', portfolio_path(portfolio.id), class: "btn btn-cyan" %></p>
                     </div>
                     <div class="col-3">
-                      <%= t('view.likes') %><%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %>
-                      <%= link_to t('view.deploy_url_link'), portfolio.deploy_url, class: 'URL' %>
+                      <%= t('view.likes') %><%= render partial: 'portfolios/portfolios', locals: { portfolio: portfolio } %><br>
+                      <%= link_to t('view.deploy_url_link'), portfolio.deploy_url, class: 'URL', id: 'btn-gradient-3d-orange' %>
                     </div>
                   </div>
                 </div>
