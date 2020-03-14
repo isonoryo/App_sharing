@@ -1,76 +1,112 @@
 <div class="container">
-  <div class="card">
-    <h2 class="row justify-content-center">Edit <%= resource_name.to_s.humanize %></h2>
-    <div class="row justify-content-center">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+  <h2 class="row justify-content-center">Edit <%= resource_name.to_s.humanize %></h2>
+  <div class="row justify-content-center">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="mask d-flex justify-content-center align-items-center">
+        <!-- Content -->
+        <div class="container py-15 my-15">
+          <!--Grid row-->
+          <div class="row d-flex align-items-center justify-content-center">
+            <!--Grid column-->
+            <div class="col-md-15 col-xl-15">
+              <!--Form-->
+              <div class="card">
 
-          <div class="field">
-            <%= f.label :name %><br />
-            <%= f.text_field :name, autofocus: true %>
+                <div class="md-form">
+                  <i class="fa fa-user prefix black-text"></i>
+                  <%= f.label :name %><br/>
+                  <%= f.text_field :name, autofocus: true %>
+                </div>
+
+                <div class="md-form">
+                  <i class="fa fa-images prefix black-text"></i>
+                  <br>
+                  <%= f.label :profile_image %><br/>
+                  <%= f.file_field :profile_image %>
+                </div>
+
+                <div class="md-form">
+                  <i class="fa fa-envelope prefix black-text"></i>
+                  <%= f.label :email %><br/>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                </div>
+
+                <div class="md-form">
+                  <i class="fa fa-pencil-alt prefix black-text"></i>
+                  <br><br>
+                  <%= f.label :learning_start %>
+                  <%= f.date_select :learning_start,
+                  use_month_numbers: true,
+                  start_year: 1980, end_year: (Time.now.year),
+                  default: Date.new(1999, 1, 1),
+                  :discard_day => true %>
+                </div>
+
+                <div class="md-form">
+                  <i class="fa fa-school prefix black-text"></i>
+                  <br><br>
+                  <%= f.label :school %>
+                  <%= f.select :school_id, School.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
+                </div>
+
+                <div class="md-form">
+                  <i class="fas fa-address-card prefix black-text"></i><br/>
+                  <%= f.label :introduce %><br/>
+                  <%= f.text_area :introduce, autofocus: true %>
+                </div>
+
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
+
+                <div class="md-form">
+                  <i class="fas fa-key prefix black-text"></i>
+                  <br><br>
+                  <%= f.label :password %>
+                  <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> <%= t('view.characters_minimum') %>)</em>
+                  <% end %><br />
+                  <%= f.password_field :password, autocomplete: "new-password" %>
+                </div>
+
+                <div class="md-form">
+                  <i class="fas fa-key prefix black-text"></i>
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                </div>
+
+                <div class="md-form">
+                  <i class="fas fa-key prefix black-text"></i>
+                  <%= f.label :current_password %><br/><br/> <i><%= t('view.we_need_your_current_password_to_confirm_your_changes') %></i><br />
+                  <%= f.password_field :current_password, autocomplete: "current-password" %>
+                </div>
+
+                <div class="text-center my-3">
+                  <div class="actions">
+                  <button class="btn btn-indigo btn-block">更新する</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/.Form-->
           </div>
-
-          <div class="field">
-            <%= f.label :profile_image %><br/>
-            <%= f.file_field :profile_image %>
-          </div>
-
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
-
-          <div class="field">
-          <%= f.label :learning_start %>
-          <%= f.date_select :learning_start,
-            use_month_numbers: true,
-            start_year: 1980, end_year: (Time.now.year),
-            default: Date.new(1999, 1, 1),
-            :discard_day => true %>
-          </div>
-
-          <div class="field">
-          <%= f.label :school %>
-          <%= f.select :school_id, School.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
-          </div>
-
-          <div class="field">
-            <%= f.label :introduce %><br/>
-            <%= f.text_area :introduce, autofocus: true %>
-          </div>
-
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-          <% end %>
-
-          <div class="field">
-            <%= f.label :password %> <i><%= t('view.not_change') %></i><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
-            <% if @minimum_password_length %>
-              <br />
-              <em><%= @minimum_password_length %> <%= t('view.characters_minimum') %></em>
-            <% end %>
-          </div>
-
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :current_password %> <i><%= t('view.we_need_your_current_password_to_confirm_your_changes') %></i><br />
-            <%= f.password_field :current_password, autocomplete: "current-password" %>
-          </div>
-
-          <div class="actions">
-            <%= f.submit "Update" %>
-          </div>
-        <% end %>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      <!-- Content -->
+      <% end %>
+    </div>
+  </div><br>
+  <div class="row justify-content-center">
+    <div>
+      <div>
+        <h3><%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></h3>
       </div>
       <div class="row justify-content-center">
-        <h3><%= t('view.cancel_account') %></h3>
-        <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <%= link_to "戻る", :back, class: "btn btn-cyan" %>
       </div>
-        <p class="row justify-content-center"><%= link_to "Back", :back %></p>
     </div>
+  </div>      
 </div>
+

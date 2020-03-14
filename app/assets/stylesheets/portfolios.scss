@@ -89,3 +89,14 @@ position: absolute;/*←絶対位置*/
    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
    border-bottom: none;
  }
+
+ .back-image{
+   background-image: url('/assets/website-1624028_1280.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+ }
+ .mask{
+   height: 100%;
+   background: rgba(255,255,255,0.7);
+ }

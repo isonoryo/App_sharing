@@ -78,7 +78,13 @@
         <% end %>
       </div>
 
-      <%= yield %>
+      <div class="back-image">
+        <div class="mask">
+          <div class="front-content">
+          <%= yield %>
+          </div>
+        </div>
+      </div>
       
     <footer class="page-footer font-small mdb-color lighten-3 pt-4">
       <div class="footer-copyright text-center py-3">© 2020 Copyright:
