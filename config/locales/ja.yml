@@ -1,5 +1,12 @@
 ---
 ja:
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."
   activerecord:
     errors:
       messages:
@@ -230,3 +237,4 @@ ja:
     we_need_your_current_password_to_confirm_your_changes: （プロフィール変更には、現在のパスワードが必要です。）
     not_change: （パスワード変更しない場合は、空欄のままにしてください。）
     cancel_account: アカウント削除
+    
