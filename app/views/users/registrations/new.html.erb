@@ -1,14 +1,36 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="signup_alert row justify-content-center">
   <%= render "devise/shared/error_messages", resource: resource %>
+</div>
   <!-- Main navigation -->
   <!-- Full Page Intro -->
   <section style="background-image: url('/assets/website-1624028_1280.png'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-    <!-- Mask & flexbox options-->
     <div class="mask d-flex justify-content-center align-items-center">
-      <!-- Content -->
       <div class="container py-5 my-5">
-        <h3 class="font-weight-bold text-center black-text pb-2">無料で始めましょう</h3>
-        <p class="lead text-center black-text pt-2 mb-5">Supports the best LoL life</p>  
+        <div class="container my-5 z-depth-1">
+          <section style="background-color: #2bbbad !important", class="dark-grey-text">
+            <div class="row pr-lg-12">
+              <div class="col-md-6 mb-20">
+                <div class="view">
+                  <img src="https://mdbootstrap.com/img/illustrations/graphics(2).png" class="img-fluid" alt="smaple image">
+                </div>
+              </div>
+              <div class="col-md-6 d-flex align-items-center">
+                <div>
+                  <h2 class="font-weight-bold white-text mb-10">AppSharingでポートフォリオを</h2>
+                  <h2 class="font-weight-bold white-text mb-10">シェアしよう！</h2>
+                  <h4 class="step">STEP1</h4>
+                  <h5 class="font-weight-bold white-text mb-10">ユーザー登録（学習歴、スクール等）</h5>
+                  <h4 class="step">STEP2</h4>
+                  <h5 class="font-weight-bold white-text mb-10">ポートフォリオ登録（使用言語、デプロイ先等）</h5>
+                  <h4 class="step">STEP3</h4>
+                  <h5 class="font-weight-bold white-text mb-10">みんなでポートフォリオをシェアしよう！</h5>
+                  <h5 class="font-weight-bold white-text mb-10">（いいね、コメント等）</h5>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div> 
         <!--Grid row-->
         <div class="row d-flex align-items-center justify-content-center">
           <!--Grid column-->

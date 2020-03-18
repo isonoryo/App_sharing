@@ -110,4 +110,16 @@ position: absolute;/*←絶対位置*/
    color: white;
  }
 
+textarea {
+    resize: vertical horizontal;
+    max-height: 500px;
+    min-height: 100px;
+    max-width: 1000px;
+    min-width: 500px;
+}
+
+.signup_alert{
+  background-color: white;
+}
+
  

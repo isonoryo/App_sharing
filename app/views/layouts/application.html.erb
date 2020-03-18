@@ -30,15 +30,15 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link" href="/portfolios">新着投稿ポートフォリオ一覧へ</a>
+                <a class="nav-link fa fa-list-alt prefix white-text" href="/portfolios">新着投稿ポートフォリオ一覧へ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/portfolios/ranking">いいねランキングへ</a>
+                <a class="nav-link fa fa-crown prefix white-text" href="/portfolios/ranking">いいねランキングへ</a>
               </li>
             </ul>
             <ul class="navbar-nav ml-auto nav-flex-icons">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header" %>
-              <%= link_to 'マイページへ', "/user/#{current_user.id}" , class: "header" %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header fas fa-sign-out-alt prefix white-text" %>
+              <%= link_to 'マイページへ', "/user/#{current_user.id}" , class: "header fa fa-user prefix white-text" %>
             </ul>
             <div class="login_word"><%= t('view.login_now') %>：<%= current_user.name %>
             </div>
@@ -59,10 +59,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <%= link_to "新規登録", new_user_registration_path, class: "header" %>
+                <%= link_to "新規登録", new_user_registration_path, class: "header fas fa-user-plus prefix white-text" %>
               </li>
               <li class="nav-item active">
-                <%= link_to "ログイン", new_user_session_path, class: "header" %>
+                <%= link_to "ログイン", new_user_session_path, class: "header fas fa-sign-out-alt prefix white-text" %>
               </li>
             </ul>
           </div>
