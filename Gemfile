@@ -21,7 +21,11 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'launchy'
-
+  gem 'capistrano', '3.6.0' # capistranoのツール一式
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -50,3 +54,5 @@ gem 'ransack'
 gem 'kaminari'
 gem 'fog-aws'
 gem 'dotenv-rails'
+gem 'unicorn' # アプリケーションサーバのunicorn
+gem 'mini_racer', platforms: :ruby # デプロイ時に必要
